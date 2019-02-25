@@ -2,10 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {AboutComponent} from './about.component';
-import {EventsComponent} from './events.component';
-import {JoinComponent} from './join.component';
-import {LoginComponent} from './login.component';
+import {AboutComponent} from './about/about.component';
+import {EventsComponent} from './events/events.component';
+import {JoinComponent} from './join/join.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {AuthModule} from './auth/auth.module';
 
 
 @NgModule({
@@ -14,11 +15,12 @@ import {LoginComponent} from './login.component';
     AboutComponent,
     EventsComponent,
     JoinComponent,
-    LoginComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
