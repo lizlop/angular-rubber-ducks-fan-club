@@ -1,0 +1,59 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+h1{
+  position: absolute;
+  width: 469px;
+  height: 49px;
+  left: calc(50% - 469px/2 + 2px);
+  top: calc(50% - 49px/2 + 128px);
+
+  font-style: normal;
+  font-weight: normal;
+  line-height: 46px;
+  font-size: 36px;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+}
+a{
+  position: absolute;
+  width: 152px;
+  height: 43px;
+  top: 54px;
+
+  font-family: 'Risque', cursive;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 31px;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+}
+#icon{
+  position: absolute;
+  width: 185px;
+  height: 173px;
+  /*top: 270px;*/
+  /*left: 540px;*/
+  left: calc(50% - 185px/2 + 2px);
+  top: calc(50% - 173px/2 + 20px);
+  background: url(../img/duck-icon.png);
+  background-size: cover;
+}
+b{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /*width: 1500px;*/
+  /*height: 886px;*/
+  left: 0px;
+  top: 0px;
+
+  background-image: url(../img/background-image.png);
+  background-size: cover;
+}
