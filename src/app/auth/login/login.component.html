@@ -1,6 +1,9 @@
+<div id="window">
 <h2>{{title}}</h2>
 <p>{{message}}</p>
 <p>
   <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
   <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
 </p>
+</div>
+<a routerLink="/" routerLinkActive="active" id="page"></a>

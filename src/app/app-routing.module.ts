@@ -9,20 +9,15 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: 'about',
-  component: AboutComponent,
-  data: {title: 'About us'}},
+  component: AboutComponent},
   {path: 'events',
-  component: EventsComponent,
-  data: {title: 'Events'}},
+  component: EventsComponent},
   {path: 'join',
-  component: JoinComponent,
-  data: {title: 'Join Rubber Ducks\' fan club!'}},
+  component: JoinComponent},
   {path: 'login',
-  component: LoginComponent,
-  data: {title: 'Welcome!'}},
+  component: LoginComponent},
   {path: '',
-  component: AppComponent,
-  data: {title: 'RUBBER DUCKS\' FAN CLUB'}},
+  component: AppComponent},
   {path: '**',
   component: PageNotFoundComponent}
   ];

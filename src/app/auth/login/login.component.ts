@@ -8,6 +8,7 @@ import {NavigationExtras, Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  title = 'Welcome!';
   message: string;
 
   constructor(public authService: AuthService, public router: Router) {

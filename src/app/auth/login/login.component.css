@@ -1,0 +1,18 @@
+#window{
+  background: #FFFFFF;
+  border-radius: 50px;
+  z-index: 2;
+  position: relative;
+  padding: 5%;
+  width: 30%;
+  margin-top: 20%;
+  margin-left: 30%;
+}
+#page{
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

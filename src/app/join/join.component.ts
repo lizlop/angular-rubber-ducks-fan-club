@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['../app.component.css']
 })
 export class JoinComponent {
+  title = 'Join Rubber Ducks\' fan club!';
 }
