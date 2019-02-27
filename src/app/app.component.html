@@ -11,7 +11,6 @@
   <a routerLink="/join" routerLinkActive="active" style="left: 971px;">Join us or</a>
   <a routerLink="/login" routerLinkActive="active" style="left: 1095px;">Login in</a>
 </nav>
-<div id="icon"></div>
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
+<div class="container" [@routeAnimation]="getAnimationData(routerOutlet)">
   <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>

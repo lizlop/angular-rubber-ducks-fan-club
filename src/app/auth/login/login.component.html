@@ -1,9 +1,9 @@
 <div id="window">
-<h2>{{title}}</h2>
-<p>{{message}}</p>
-<p>
-  <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-  <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
-</p>
+  <h2>{{title}}</h2>
+  <input class="text" [(ngModel)]="userlogin">
+  <input class="text" [(ngModel)]="password">
+  <button class="text" (click)="login()">Sign in</button>
+  <h3>or</h3>
+  <button class="text" routerLink="/join" routerLinkActive="active">Sign up</button>
 </div>
 <a routerLink="/" routerLinkActive="active" id="page"></a>

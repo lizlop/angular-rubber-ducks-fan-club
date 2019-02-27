@@ -1,6 +1,9 @@
-html {
-  height: 100%;
-  width: 100%;
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height:100%;
 }
 h1{
   position: absolute;
@@ -36,16 +39,7 @@ a{
   color: #FFFFFF;
 }
 /* todo: make icon and background as one image*/
-#icon{
-  position: absolute;
-  width: 15%;
-  height: 26.04%;
-  left: 42.5%;
-  top: 36.98%;
-  background: url(../img/duck-icon.png);
-  background-size: cover;
-  z-index: 1;
-}
+
 b{
   position: absolute;
   height: 100%;

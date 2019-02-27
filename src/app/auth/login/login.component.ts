@@ -10,6 +10,8 @@ import {NavigationExtras, Router} from '@angular/router';
 export class LoginComponent {
   title = 'Welcome!';
   message: string;
+  userlogin = 'login';
+  password = 'password';
 
   constructor(public authService: AuthService, public router: Router) {
     this.setMessage();

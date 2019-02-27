@@ -3,10 +3,12 @@
   border-radius: 50px;
   z-index: 2;
   position: relative;
-  padding: 5%;
-  width: 30%;
-  margin-top: 20%;
-  margin-left: 30%;
+  padding: 10% 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 24em;
+  width: 25em;
 }
 #page{
   position: absolute;
@@ -16,3 +18,29 @@
   top: 0;
   left: 0;
 }
+input{
+  width: 85%;
+  height: 2em;
+  margin: 0.5em;
+  font-size: 1.1em;
+  border: solid 0.03em black;
+  padding: 0.1em 0.2em;
+  text-align: center;
+}
+button, h2{
+  font-size: 2em;
+  font-weight: normal;
+  margin: 0.5em;
+  border: 0;
+  background: none;
+}
+h3{
+  font-weight: normal;
+  font-size: 1.5em;
+  margin: unset;
+}
+.text{
+  font-family: 'Risque', cursive;
+  font-style: normal;
+}
+
