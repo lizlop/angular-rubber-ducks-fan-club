@@ -1,0 +1,58 @@
+.win_container{
+  height:100%;
+}
+.text{
+  font-family: 'Risque', cursive;
+  font-style: normal;
+  font-weight: normal;
+}
+.nav_container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+}
+.item{
+  width: 50%;
+  flex-grow: 2;
+}
+#rightnav{
+  margin: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end
+}
+#leftnav{
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+a{
+  z-index: 2;
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  line-height: 31px;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+}
+/* todo: make icon and background as one image*/
+
+b{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /*width: 1500px;*/
+  /*height: 886px;*/
+  left: 0;
+  top: 0;
+
+  background-image: url(../../img/background-image.png);
+  background-size: cover;
+  z-index: 0;
+}
