@@ -1,3 +1,6 @@
+app-start-page{
+  height: 100%;
+}
 .win_container{
   display: flex;
   flex-direction: column;
@@ -6,24 +9,30 @@
   height:100%;
   z-index: 1;
 }
-a{z-index: 2;}
 #window{
   background: #FFFFFF;
   border-radius: 50px;
   z-index: 2;
   position: relative;
-  padding: 3% 4%;
+  padding: 1% 1%;
   height: fit-content;
   width: fit-content;
   z-index: 2;
 }
 .column{
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 label{
-  font-size: 1.5em;
+  font-size: 1.2em;
+}
+#gender{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 85%;
 }
 #page{
   position: absolute;
@@ -36,9 +45,8 @@ label{
 .invalid-feedback{
   color: red;
 }
-input{
+.form-control{
   width: 85%;
-  height: 2em;
   margin: 0.5em;
   font-size: 1.1em;
   border: solid 0.03em black;
@@ -46,7 +54,7 @@ input{
   text-align: center;
 }
 button, h2{
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: normal;
   margin: 0.5em;
   border: 0;
@@ -54,11 +62,10 @@ button, h2{
 }
 h3{
   font-weight: normal;
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin: unset;
 }
 .text{
   font-family: 'Risque', cursive;
   font-style: normal;
 }
-

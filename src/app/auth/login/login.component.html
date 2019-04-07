@@ -1,20 +1,25 @@
 <div class="win_container">
 <div class="column" id="window">
   <h2>{{title}}</h2>
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" required id="username" [(ngClass)]="username" />
-    <h2>{{username}}</h2>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" required id="password" [(ngClass)]="password" />
-    <h2>{{password}}</h2>
-  </div>
-  <div class="form-group">
-    <button type="submit" (click)="onSubmit()" class="text">Sign in</button>
-  </div>
-
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="column">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Username is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-primary text">Sing in</button>
+    </div>
+  </form>
   <!-- social media-->
   <div style="display: flex; flex-direction: row; justify-content: space-around; width: 60%">
     <div style="width: 50px; height: 50px; border-radius: 100%; background-color: cornflowerblue"></div>

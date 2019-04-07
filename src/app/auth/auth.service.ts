@@ -1,32 +1,42 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {User} from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  uri = 'http://localhost:5000/api';
-  token;
-  access = false;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
-  constructor(/*private http: HttpClient,*/ private router: Router) { }
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
   login(username: string, password: string) {
-    /*this.http.post(this.uri + '/auth', {username: username, password: password})
-      .subscribe((resp: any) => {
-        // this.router.navigate(['profile']);
-        localStorage.setItem('token', resp.token);
-      });*/
-    this.router.navigate(['home']);
-    this.access = (username != null && password != null);
+    return this.http.post<any>('/api/users', { username, password })
+      .pipe(map(user => {
+        // login successful if there's a jwt token in the response
+        if (user && user.token) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUserSubject.next(user);
+        }
+
+        return user;
+      }));
   }
 
   logout() {
-    localStorage.removeItem('token');
-  }
-
-  public get isLogedIn(): boolean {
-    // return (localStorage.getItem('token') !== null);
-    return this.access;
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
 }

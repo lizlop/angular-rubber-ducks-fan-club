@@ -1,16 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../auth.service';
 
 @Component({
-  selector: 'app-join',
-  templateUrl: './join.component.html',
-  styleUrls: ['./join.component.css']
+  selector: 'app-join-detailed',
+  templateUrl: './join-detailed.component.html',
+  styleUrls: ['./join-detailed.component.css']
 })
-export class JoinComponent implements OnInit {
+export class JoinDetailedComponent implements OnInit {
   title = 'Join Rubber Ducks\' fan club!';
-  pattern = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}';
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -29,8 +28,13 @@ export class JoinComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.pattern(this.pattern)]],
-      password: ['', Validators.required]
+      username: ['', Validators.required],
+      gender: [''],
+      firstName: [''],
+      lastName: [''],
+      birthday: [''],
+      country: [''],
+      city: ['']
     });
   }
 
@@ -44,7 +48,7 @@ export class JoinComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.router.navigate(['/join-detailed']);
+    this.router.navigate(['/home']);
   }
 
 }

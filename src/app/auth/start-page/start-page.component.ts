@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-start-page',
@@ -6,4 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./start-page.component.css']
 })
 export class StartPageComponent {
+  constructor( private router: Router, private authService: AuthService ) {
+    if (this.authService.currentUserValue) {
+      this.router.navigate(['/home']);
+    }
+  }
 }

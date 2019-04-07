@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import {AboutComponent} from './about/about.component';
 import {EventsComponent} from './events/events.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {HttpClientModule} from '@angular/common/http';
+import {PrivateModule} from './private/private.module';
+import {NavigationModule} from './navigation/navigation.module';
 
 
 
@@ -17,7 +20,10 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    PrivateModule,
+    NavigationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
