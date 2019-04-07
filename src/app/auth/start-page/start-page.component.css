@@ -52,7 +52,7 @@ b{
   left: 0;
   top: 0;
 
-  background-image: url(../../img/background-image.png);
+  background-image: url(../../../img/background-image.png);
   background-size: cover;
   z-index: 0;
 }

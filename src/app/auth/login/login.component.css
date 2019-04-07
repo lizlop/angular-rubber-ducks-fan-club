@@ -4,18 +4,22 @@
   align-items: center;
   justify-content: center;
   height:100%;
+  z-index: 1;
 }
 #window{
   background: #FFFFFF;
   border-radius: 50px;
   z-index: 2;
   position: relative;
-  padding: 3% 2%;
+  padding: 3% 4%;
+  height: fit-content;
+  width: fit-content;
+  z-index: 2;
+}
+.column{
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 24em;
-  width: 25em;
 }
 #page{
   position: absolute;
