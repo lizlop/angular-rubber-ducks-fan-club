@@ -4,4 +4,5 @@ html, body {
   margin: unset;
   height: 100%;
   background-color: #F1F2F2;
+  letter-spacing: 0.05em;
 }
