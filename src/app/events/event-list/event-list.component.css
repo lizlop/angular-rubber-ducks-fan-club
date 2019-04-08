@@ -1,6 +1,7 @@
 .events{
   width: 100%;
   display: flex;
+  margin-top: 4em;
   flex-direction: column;
   align-items: center;
   list-style: none;
@@ -11,6 +12,7 @@ a{
 }
 .btnpanel{
   width: 225px;
+  margin-top: 4em;
   display: flex;
   margin-left: 2%;
   flex-direction: column;

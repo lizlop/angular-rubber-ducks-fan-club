@@ -70,3 +70,24 @@ b{
   z-index: 0;
   background-color: #B4957C;
 }
+#title{
+  width: fit-content;
+  padding: 0.2em 4% 0.2em 4%;
+  margin: unset;
+  color: #FFFFFF;
+  white-space: nowrap;
+  font-size: 2.2em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+#flag{
+  width: fit-content;
+  background: no-repeat url("../../img/flag.svg");
+  background-size: cover;
+  background-clip: padding-box;
+  margin-left: unset;
+  padding-left: 4%;
+  padding-right: 5%;
+  margin-bottom: 2%;
+  z-index: 3;
+}

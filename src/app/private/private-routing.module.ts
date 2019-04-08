@@ -6,7 +6,6 @@ import {MyAccountComponent} from './my-account/my-account.component';
 
 const privateRoutes: Routes = [{
   path: '',
-  component: PrivateComponent,
   children: [
     {
       path: 'duck-sharing',
@@ -15,6 +14,10 @@ const privateRoutes: Routes = [{
     {
       path: 'my-account',
       component: MyAccountComponent
+    },
+    {
+      path: '',
+      component: PrivateComponent
     }
   ]
 }];
