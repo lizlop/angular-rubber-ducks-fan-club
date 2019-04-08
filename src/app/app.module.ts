@@ -8,6 +8,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PrivateModule} from './private/private.module';
 import {NavigationModule} from './navigation/navigation.module';
+import { EventListComponent } from './events/event-list/event-list.component';
 
 
 
@@ -16,7 +17,8 @@ import {NavigationModule} from './navigation/navigation.module';
     AppComponent,
     AboutComponent,
     EventsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EventListComponent
   ],
   imports: [
     AppRoutingModule,
