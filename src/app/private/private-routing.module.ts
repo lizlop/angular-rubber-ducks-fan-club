@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {PrivateComponent} from './private/private.component';
 import {DuckSharingComponent} from './duck-sharing/duck-sharing.component';
 import {MyAccountComponent} from './my-account/my-account.component';
+import {CreateEventComponent} from './create-event/create-event.component';
 
 const privateRoutes: Routes = [{
   path: '',
@@ -14,6 +15,10 @@ const privateRoutes: Routes = [{
     {
       path: 'my-account',
       component: MyAccountComponent
+    },
+    {
+      path: 'create-event',
+      component: CreateEventComponent
     },
     {
       path: '',

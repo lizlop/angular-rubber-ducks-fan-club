@@ -1,0 +1,50 @@
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+h3{
+  margin-top: 2%;
+  margin-bottom: unset;
+}
+button{
+  background-color: #B4957C;
+  color: #FFFFFF;
+  font-size: 1.5em;
+  font-weight: normal;
+  padding:0.3em 2em 0.3em 2em ;
+  margin-top: 1%;
+}
+.text{
+  font-family: 'Risque', cursive;
+  font-style: normal;
+}
+.invalid-feedback{
+  color: red;
+}
+.form-control{
+  height: 40px;
+  font-family: 'Risque', cursive;
+  font-style: normal;
+  font-size: 1.2em;
+}
+.check-box{
+  margin: unset;
+  margin-left: 2%;
+  margin-top: 2%;
+  width: 20px;
+  height: 20px;
+}
+.txt{
+  width: 800px;
+}
+#txt{
+  height: 350px;
+  text-align: start;
+}

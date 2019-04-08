@@ -14,7 +14,8 @@ const routes: Routes = [
   {path: 'events',
   component: EventsComponent},
   {path: 'home',
-    loadChildren: () => PrivateModule
+    loadChildren: () => PrivateModule,
+    canActivate: [AuthGuard]
   },
   {path: '',
   loadChildren: () => AuthModule},

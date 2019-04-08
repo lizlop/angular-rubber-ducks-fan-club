@@ -12,7 +12,7 @@ export class JoinGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this.router.url === '/join' || this.router.url === '/join-detailed') { return true; }
-    this.router.navigate(['/']);
+    this.router.navigate(['/join']);
     return false;
   }
 }

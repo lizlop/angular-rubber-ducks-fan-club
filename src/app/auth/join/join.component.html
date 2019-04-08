@@ -3,7 +3,7 @@
     <h2>{{ title }}</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="column">
         <h3 class="label"  for="email">Write your e-mail</h3>
-        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required">E-mail is required</div>
           <div *ngIf="f.email.errors.pattern">E-mail is not correct</div>
