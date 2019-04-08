@@ -8,6 +8,7 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./start-page.component.css']
 })
 export class StartPageComponent {
+  title = 'rubber ducks\' fan club';
   constructor( private router: Router, private authService: AuthService ) {
     if (this.authService.currentUserValue) {
       this.router.navigate(['/home']);

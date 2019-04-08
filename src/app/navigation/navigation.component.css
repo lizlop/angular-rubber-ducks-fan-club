@@ -34,23 +34,28 @@
   z-index: 2;
   display: flex;
   margin-right: 20px;
+  margin-left: 1%;
   width: 40px;
   height: 40px;
-  background-color: #FFFFFF;
+  background: no-repeat url("../../img/user-logo.svg");
+  background-size: cover;
 }
 #icon{
   z-index: 2;
   display: flex;
   margin-left: 20px;
+  margin-right: 1%;
   width: 70px;
   height: 70px;
-  background-color: #FFFFFF;
+  background: no-repeat url("../../img/duck-logo.svg");
+  background-size: cover;
 }
 a{
   z-index: 2;
   display: flex;
   margin-left: 20px;
   margin-right: 20px;
+  text-decoration: none;
 
   line-height: 31px;
   font-size: 24px;
@@ -59,7 +64,6 @@ a{
 
   color: #FFFFFF;
 }
-/* todo: make icon and background as one image*/
 b{
   position: absolute;
   height: 40%;
@@ -68,7 +72,8 @@ b{
   top: 0;
 
   z-index: 0;
-  background-color: #B4957C;
+  background: no-repeat url("../../img/background-image-small.png");
+  background-size: cover;
 }
 #title{
   width: fit-content;
@@ -87,7 +92,7 @@ b{
   background-clip: padding-box;
   margin-left: unset;
   padding-left: 4%;
-  padding-right: 5%;
+  padding-right: 6%;
   margin-bottom: 2%;
   z-index: 3;
 }

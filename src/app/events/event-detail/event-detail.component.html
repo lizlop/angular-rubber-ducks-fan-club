@@ -1,0 +1,26 @@
+<div style="height: 40%">
+  <app-navigation [inputTitle]="'events'"></app-navigation>
+</div>
+
+<div class="column">
+  <div *ngIf="$event as event" class="event">
+    <div>
+      <div class="row">
+        <div class="icon"></div>
+        <a [routerLink]="['/event', event.id]" class="header">{{event.name}}</a>
+      </div>
+      <div class="text data">
+        <div>Date: {{event.date}}</div>
+        <div>City: {{event.place.city}}, {{event.place.country}}</div>
+        <div>Address: {{event.place.street}} {{event.place.building}} {{event.place.name}}</div>
+        <div *ngIf="event.isClubOnly">Participants: {{event.participants}} of {{event.maxPeople}}</div>
+      </div>
+      <div class="description text" >
+        <li *ngFor="let str of event.description" class="text">{{str}}</li>
+      </div>
+    </div>
+    <div class="row">
+    <button *ngIf="event.isClubOnly&&(event.maxPeople!=event.participants)">Register to the event</button>
+    </div>
+  </div>
+</div>

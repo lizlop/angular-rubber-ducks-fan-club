@@ -9,6 +9,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {PrivateModule} from './private/private.module';
 import {NavigationModule} from './navigation/navigation.module';
 import { EventListComponent } from './events/event-list/event-list.component';
+import { EventDetailComponent } from './events/event-detail/event-detail.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -18,14 +20,16 @@ import { EventListComponent } from './events/event-list/event-list.component';
     AboutComponent,
     EventsComponent,
     PageNotFoundComponent,
-    EventListComponent
+    EventListComponent,
+    EventDetailComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     PrivateModule,
-    NavigationModule
+    NavigationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

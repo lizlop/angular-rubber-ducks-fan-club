@@ -10,7 +10,7 @@
   align-items: stretch;
 }
 h3{
-  margin-top: 2%;
+  margin-top: 1%;
   margin-bottom: unset;
 }
 button{
@@ -33,6 +33,7 @@ button{
   font-family: 'Risque', cursive;
   font-style: normal;
   font-size: 1.2em;
+  margin-bottom: 1%;
 }
 .check-box{
   margin: unset;
