@@ -12,6 +12,8 @@ import { DuckListComponent } from './duck-list/duck-list.component';
 import { DuckDetailComponent } from './duck-detail/duck-detail.component';
 import { DuckFormComponent } from './duck-form/duck-form.component';
 import { MyEventsComponent } from './my-events/my-events.component';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './authInterceptor';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,13 @@ import { MyEventsComponent } from './my-events/my-events.component';
     PrivateRoutingModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ]
 })
 export class PrivateModule { }

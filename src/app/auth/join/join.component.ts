@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../auth.service';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
+import {User} from '../user';
 
 @Component({
   selector: 'app-join',
@@ -13,6 +14,7 @@ export class JoinComponent implements OnInit {
   title = 'Join Rubber Ducks\' fan club!';
   error = '';
   registerForm: FormGroup;
+  user: User;
   loading = false;
   submitted = false;
   constructor(
@@ -23,7 +25,7 @@ export class JoinComponent implements OnInit {
     // private alertService: AlertService
   ) {
     // redirect to home if already logged in
-    if (this.authService.currentUserValue) {
+    if (this.authService.isLogedIn()) {
       this.router.navigate(['/home']);
     }
   }
@@ -33,6 +35,7 @@ export class JoinComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+    this.user = new User;
   }
 
   // convenience getter for easy access to form fields
@@ -46,7 +49,9 @@ export class JoinComponent implements OnInit {
       return;
     }
     this.loading = true;
-    if (this.authService.addUser(this.f.username.value, this.f.password.value)) {
+    this.user.username = this.f.username.value;
+    this.user.password = this.f.password.value;
+    if (this.authService.addUser(this.user)) {
       this.router.navigate(['/join-detailed']);
     } else {
       this.loading = false;

@@ -22,7 +22,7 @@ const privateRoutes: Routes = [{
       component: DuckSharingFormComponent
     },
     {
-      path: 'ducks',
+      path: 'my-ducks',
       component: DuckListComponent
     },
     {

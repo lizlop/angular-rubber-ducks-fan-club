@@ -2,7 +2,7 @@
   <div class="column" id="window">
     <h2>{{ title }}</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="column">
-        <h3 class="label"  for="username">Write your e-mail</h3>
+        <h3 class="label"  for="username">Create your username</h3>
         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
           <div *ngIf="f.username.errors.required">Username is required</div>

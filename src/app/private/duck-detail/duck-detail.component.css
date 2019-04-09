@@ -1,0 +1,39 @@
+.image{
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  background: center no-repeat #FFFFFF url("../../../img/user-logo-brown.svg");
+  background-size: cover;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 4em;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.table{
+  background-color: #FFFFFF;
+  padding: 30px;
+  width: 48%;
+  border-style: outset;
+}
+.t{
+  border: solid 1px #EDA31D;
+  width: 90%;
+  padding: 5%;
+}
+label, output{
+  font-size: 1.5em;
+  height: 1.6em;
+  white-space: nowrap;
+  margin-right: 1.5em;
+}

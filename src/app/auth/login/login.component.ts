@@ -3,6 +3,8 @@ import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 import {AuthService} from '../auth.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
+import {User} from '../user';
+import {AuthUser} from '../auth-user';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +17,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  user: User;
   error = '';
 
   constructor(
@@ -25,7 +28,7 @@ export class LoginComponent implements OnInit {
     // private alertService: AlertService
   ) {
     // redirect to home if already logged in
-    if (this.authService.currentUserValue) {
+    if (this.authService.isLogedIn()) {
       this.router.navigate(['/home']);
     }
   }
@@ -35,6 +38,7 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+    this.user = new User;
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
@@ -53,7 +57,9 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authService.login(this.f.username.value, this.f.password.value)
+    this.user.username = this.f.username.value;
+    this.user.password = this.f.password.value;
+    this.authService.login(this.user)
       .pipe(first())
       .subscribe(
         data => {
@@ -64,6 +70,13 @@ export class LoginComponent implements OnInit {
           this.error = 'Username or password is not correct';
           this.loading = false;
         });
+    //
+    // fake logging in
+    let auser = new AuthUser();
+    auser.token = '2By8LOhBmaW5nZXJwcmludCIlMDAzMW';
+    auser.username = this.user.username;
+    localStorage.setItem('currentUser', JSON.stringify(auser));
+    //
     this.router.navigate(['/home']);
   }
 }

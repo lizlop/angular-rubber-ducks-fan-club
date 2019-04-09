@@ -1,0 +1,40 @@
+li{
+  list-style: none;
+}
+.image{
+  width: 150px;
+  height: 150px;
+  background: center no-repeat #FFFFFF url("../../../img/duck-image.svg");
+  background-size: cover;
+  border-style: outset;
+}
+.name{
+  font-size: 1.5em;
+}
+.duck{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2%;
+}
+.ducks{
+  width: 67%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding: unset;
+  margin: unset;
+}
+.add{
+  margin: 2%;
+  border-style: inset;
+  background-image: url("../../../img/duck-image-light.png");
+}
+.panel{
+  margin-top: 4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

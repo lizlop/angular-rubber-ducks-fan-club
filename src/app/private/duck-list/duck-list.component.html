@@ -1,3 +1,16 @@
 <div style="height: 40%">
   <app-navigation [inputTitle]="'my ducks'"></app-navigation>
 </div>
+<div class="panel">
+<ul class="ducks">
+  <li *ngFor="let duck of ducks" class="duck" routerLink="/home/duck/:id"
+      [class.selected]="duck.id === selectedId">
+    <div class="image"></div>
+    <div class="name">{{duck.name}}</div>
+  </li>
+  <div routerLink="/home/add-duck" class="duck">
+  <div class="image add"></div>
+  <div class="name" style="color: gray">Add duck</div>
+  </div>
+</ul>
+</div>

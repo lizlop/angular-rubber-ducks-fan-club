@@ -5,13 +5,13 @@ import { AppComponent } from './app.component';
 import {AboutComponent} from './about/about.component';
 import {EventsComponent} from './events/events.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {PrivateModule} from './private/private.module';
 import {NavigationModule} from './navigation/navigation.module';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import {FormsModule} from '@angular/forms';
-import {AuthInterceptor} from './private/AuthInterceptor';
+import {AuthInterceptor} from './private/authInterceptor';
 
 
 
@@ -32,7 +32,7 @@ import {AuthInterceptor} from './private/AuthInterceptor';
     NavigationModule,
     FormsModule
   ],
-  providers: [AuthInterceptor],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
