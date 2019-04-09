@@ -11,6 +11,11 @@ import { Event } from '../event';
   styleUrls: ['./event-detail.component.css']
 })
 export class EventDetailComponent implements OnInit {
-  constructor() {}
-  ngOnInit() {}
+  event: Event;
+  id: number;
+  constructor( private service: EventService, private route: ActivatedRoute) {}
+  ngOnInit() {
+    this.route.params.subscribe(params => {this.id = +params['id']; });
+    this.service.getEvent(this.id).subscribe(event => this.event = event);
+  }
 }

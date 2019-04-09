@@ -3,11 +3,11 @@
 </div>
 
 <div class="column">
-  <div *ngIf="$event as event" class="event">
+  <div *ngIf="event" class="event">
     <div>
       <div class="row">
         <div class="icon"></div>
-        <a [routerLink]="['/event', event.id]" class="header">{{event.name}}</a>
+        <div class="header">{{event.name}}</div>
       </div>
       <div class="text data">
         <div>Date: {{event.date}}</div>

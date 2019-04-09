@@ -1,3 +1,41 @@
 <div style="height: 40%">
   <app-navigation [inputTitle]="'my account'"></app-navigation>
 </div>
+<div class="row">
+  <div class="column">
+    <div class="image"></div>
+    <a routerLink="/home/my-ducks" class="button">
+      <div id="duckicon"></div>
+      <div>My ducks</div>
+    </a>
+    <a routerLink="/home/settings" class="button">
+      <div id="seticon"></div>
+      <div>Settings</div>
+    </a>
+  </div>
+  <div class="column table">
+    <div class="row t" style="margin-top: unset">
+      <div class="column lab" style="align-items: flex-start">
+        <label for="username">Username:</label>
+        <label for="email">E-mail:</label>
+        <label for="first">First name:</label>
+        <label for="last">Last name:</label>
+        <label for="gender">Gender:</label>
+        <label for="birth">Birthday:</label>
+        <label for="add">Address:</label>
+      </div>
+      <div class="column val" style="align-items: flex-start">
+        <output id="username">{{user.username}}</output>
+        <output id="email">{{user.email}}</output>
+        <output id="first">{{user.firstName}}</output>
+        <output id="last">{{user.lastName}}</output>
+        <output id="gender">{{user.gender}}</output>
+        <output id="birth">{{user.birthday}}</output>
+        <output id="add">{{user.address.country}}, {{user.address.city}}</output>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+
+  </div>
+</div>

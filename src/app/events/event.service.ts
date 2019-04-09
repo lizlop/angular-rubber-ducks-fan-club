@@ -13,20 +13,20 @@ export class EventService {
 
   constructor(private http: HttpClient) {}
 
- getEvents() {
-    return EVENTS;
+ getEvents(): Observable<Event[]> {
+    return of(EVENTS);
     /*return this.http
       .get<Event[]>(this.eventsUrl)
       .pipe(map(data => data), catchError(this.handleError));*/
   }
 
-  /*getEvent(id: number): Observable<Event> {
+  getEvent(id: number): Observable<Event> {
     return this.getEvents().pipe(
       map(events => events.find(event => event.id === id))
     );
   }
 
-  save(event: Event) {
+  /*save(event: Event) {
     if (event.id) {
       return this.put(event);
     }
