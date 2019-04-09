@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../auth.service';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-join',
@@ -10,7 +11,7 @@ import {AuthService} from '../auth.service';
 })
 export class JoinComponent implements OnInit {
   title = 'Join Rubber Ducks\' fan club!';
-  pattern = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}';
+  error = '';
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -29,7 +30,7 @@ export class JoinComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.pattern(this.pattern)]],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -39,12 +40,19 @@ export class JoinComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.error = '';
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
     this.loading = true;
-    this.router.navigate(['/join-detailed']);
+    if (this.authService.addUser(this.f.username.value, this.f.password.value)) {
+      this.router.navigate(['/join-detailed']);
+    } else {
+      this.loading = false;
+      this.error = 'Registration failed';
+    }
+    // report about error
   }
 
 }

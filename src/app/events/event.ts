@@ -8,6 +8,6 @@ export class Event {
   maxPeople: number;
   participants: number;
   description: string[];
-  date: DateTimeFormat;
+  date: string;
   place: Place;
 }

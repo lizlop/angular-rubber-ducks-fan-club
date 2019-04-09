@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
-import {switchMap} from 'rxjs/operators';
 import {EventService} from '../event.service';
 import { Event } from '../event';
+import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-event-list',
@@ -11,7 +10,7 @@ import { Event } from '../event';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
-  events$: Observable<Event[]>;
+  events: Event[];
   selectedId: number;
 
   constructor(
@@ -20,12 +19,9 @@ export class EventListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.events$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        // (+) before `params.get()` turns the string into a number
-        this.selectedId = +params.get('id');
-        return this.service.getEvents();
-      })
-    );
+    this.getEvents();
+  }
+  getEvents() {
+    of(this.service.getEvents()).subscribe(events => this.events = events);
   }
 }

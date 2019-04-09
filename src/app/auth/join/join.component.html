@@ -2,11 +2,10 @@
   <div class="column" id="window">
     <h2>{{ title }}</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="column">
-        <h3 class="label"  for="email">Write your e-mail</h3>
-        <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors.required">E-mail is required</div>
-          <div *ngIf="f.email.errors.pattern">E-mail is not correct</div>
+        <h3 class="label"  for="username">Write your e-mail</h3>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Username is required</div>
         </div>
         <h3 class="label"  for="password">Create your password</h3>
         <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
@@ -14,6 +13,7 @@
           <div *ngIf="f.password.errors.required">Password is required</div>
         </div>
         <button [disabled]="loading" class="btn btn-primary text">Continue</button>
+      <div class="invalid-feedback">{{error}}</div>
     </form>
     <!-- social media-->
     <h3>or Sign up with</h3>

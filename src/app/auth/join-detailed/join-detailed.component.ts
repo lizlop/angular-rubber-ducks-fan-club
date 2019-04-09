@@ -10,6 +10,7 @@ import {AuthService} from '../auth.service';
 })
 export class JoinDetailedComponent implements OnInit {
   title = 'Join Rubber Ducks\' fan club!';
+  pattern = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}';
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -28,7 +29,7 @@ export class JoinDetailedComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern(this.pattern)]],
       gender: [''],
       firstName: [''],
       lastName: [''],
@@ -48,7 +49,7 @@ export class JoinDetailedComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.router.navigate(['/home']);
+    this.router.navigate(['/login']);
   }
 
 }

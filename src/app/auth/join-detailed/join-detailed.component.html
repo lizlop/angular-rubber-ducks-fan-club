@@ -3,10 +3,11 @@
   <div class="column" id="window">
     <h2>{{ title }}</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="column">
-      <h3 class="label" for="username">Username*</h3>
-      <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-        <div *ngIf="f.username.errors.required">Username is required</div>
+      <h3 class="label" for="email">E-mail</h3>
+      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">E-mail is required</div>
+        <div *ngIf="f.email.errors.pattern">E-mail is not correct</div>
       </div>
       <div id = "gender">
       <input type="radio" formControlName="gender" value="male" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">Male

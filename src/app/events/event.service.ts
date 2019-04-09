@@ -13,13 +13,14 @@ export class EventService {
 
   constructor(private http: HttpClient) {}
 
-  getEvents() {
-    return this.http
+ getEvents() {
+    return EVENTS;
+    /*return this.http
       .get<Event[]>(this.eventsUrl)
-      .pipe(map(data => data), catchError(this.handleError));
+      .pipe(map(data => data), catchError(this.handleError));*/
   }
 
-  getEvent(id: number): Observable<Event> {
+  /*getEvent(id: number): Observable<Event> {
     return this.getEvents().pipe(
       map(events => events.find(event => event.id === id))
     );
@@ -65,5 +66,5 @@ export class EventService {
   private handleError(res: HttpErrorResponse | any) {
     console.error(res.error || res.body.error);
     return observableThrowError(res.error || 'Server error');
-  }
+  }*/
 }

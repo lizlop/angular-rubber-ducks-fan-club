@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  error = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.error = '';
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -51,7 +53,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    /*this.authService.login(this.f.username.value, this.f.password.value)
+    this.authService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
@@ -59,8 +61,9 @@ export class LoginComponent implements OnInit {
         },
         error => {
           // this.alertService.error(error);
+          this.error = 'Username or password is not correct';
           this.loading = false;
-        });*/
+        });
     this.router.navigate(['/home']);
   }
 }

@@ -16,6 +16,7 @@
         <div *ngIf="f.password.errors.required">Password is required</div>
       </div>
     </div>
+    <div class="invalid-feedback">{{error}}</div>
     <div class="form-group">
       <button [disabled]="loading" class="btn btn-primary text">Sing in</button>
     </div>

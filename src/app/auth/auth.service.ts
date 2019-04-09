@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {User} from './user';
@@ -10,6 +10,13 @@ import {User} from './user';
 export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  uri = 'http://localhost:8080';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -19,9 +26,16 @@ export class AuthService {
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
+  addUser(username: string, password: string): boolean {
+    this.http.post<any>(this.uri + '/register/new', { username: username, password: password }, this.httpOptions)
+      .subscribe(response => {
+        return response.status === 200;
+      });
+    return false;
+  }
 
   login(username: string, password: string) {
-    return this.http.post<any>('/api/users', { username, password })
+    return this.http.post<any>(this.uri + '/auth/login', { username: username, password: password }, this.httpOptions)
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         if (user && user.token) {
@@ -29,7 +43,6 @@ export class AuthService {
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
         }
-
         return user;
       }));
   }

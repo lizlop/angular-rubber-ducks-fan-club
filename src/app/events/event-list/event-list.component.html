@@ -9,7 +9,7 @@
   </a>
 </div>
 <ul class="events">
-  <li *ngFor="let event of events$ | async" class="event"
+  <li *ngFor="let event of events" class="event"
       [class.selected]="event.id === selectedId">
 
     <div class="row">

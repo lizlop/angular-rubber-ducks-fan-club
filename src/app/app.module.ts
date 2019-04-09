@@ -11,6 +11,7 @@ import {NavigationModule} from './navigation/navigation.module';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import {FormsModule} from '@angular/forms';
+import {AuthInterceptor} from './private/AuthInterceptor';
 
 
 
@@ -31,7 +32,7 @@ import {FormsModule} from '@angular/forms';
     NavigationModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule {
