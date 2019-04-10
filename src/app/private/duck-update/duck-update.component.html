@@ -1,0 +1,10 @@
+<div style="height: 40%">
+  <app-navigation [inputTitle]="'Update duck'"></app-navigation>
+</div>
+<div class="row">
+  <div class="column table">
+    <div class="row t" style="margin-top: unset">
+    <app-duck-form [buttonTitle]="'Update duck'" (duckFormSubmit)="updateDuck($event)"></app-duck-form>
+    </div>
+  </div>
+</div>

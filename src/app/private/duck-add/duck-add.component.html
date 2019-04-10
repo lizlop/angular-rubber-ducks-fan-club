@@ -3,6 +3,8 @@
 </div>
 <div class="row">
   <div class="column table">
-      <app-duck-form (duckFormSubmit)="addDuck($event)"></app-duck-form>
+    <div class="row t" style="margin-top: unset">
+      <app-duck-form [buttonTitle]="'Add duck'" (duckFormSubmit)="addDuck($event)"></app-duck-form>
+    </div>
   </div>
 </div>

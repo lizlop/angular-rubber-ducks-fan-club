@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {USERS} from './mock-user';
 import {User} from './user';
 import {first, map} from 'rxjs/operators';
 import {Duck, DuckSimple} from './duck';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {DUCKS} from './duck-mock';
-import {Config, Config} from '../config';
+import {Config} from '../config';
 import {FeatureSet} from './featureSet';
+import {USERS} from './mock-user';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +39,8 @@ export class RequestService {
   getDucks(): Observable<DuckSimple[]> {
     return this.http.post(Config.baseUrl + Config.ducksUrl, this.getUsername(), this.httpOptions)
       .pipe(map(res => {
-        return res.map( duck => {
+        if (res instanceof Array) {
+          return res.map( duck => {
               let d = new DuckSimple();
               d.id = duck.id;
               d.name = duck.name;
@@ -50,17 +50,19 @@ export class RequestService {
             }
           );
         }
+        }
       ));
   }
   addDuck(body: string) {
     return this.http.post(Config.baseUrl + Config.duckAddUrl, body, this.httpJsonOptions)
       .pipe(first());
   }
-  getDuck(id: number): Observable<Duck> {
-    return of(DUCKS).pipe(
-      map(ducks => ducks.find(duck => duck.id === id))
-    );
-    /*return this.http.get(Config.baseUrl + Config.duckUrl + id, this.getUsername(), this.httpOptions)
+  updateDuck(body: string, id: number) {
+    return this.http.post(Config.baseUrl + Config.duckUpdateUrl + id, body, this.httpJsonOptions)
+      .pipe(first());
+  }
+  getDuck(id: number) {
+    return this.http.get<Duck>(Config.baseUrl + Config.duckUrl + id, this.httpOptions)
       .pipe(map(res => {
         let duck = new Duck();
         duck.id = res.id;
@@ -73,9 +75,9 @@ export class RequestService {
         duck.featureSet.colour = res.featureSet.colour;
         duck.featureSet.beakColour = res.featureSet.beakColour;
         duck.featureSet.length = res.featureSet.length;
-        duck.featureSet.weigh = res.featureSet.weigh;
+        duck.featureSet.weight = res.featureSet.weight;
         duck.featureSet.swimmingSkill = res.featureSet.swimmingSkill;
         return duck;
-      }));*/
+      }));
   }
 }

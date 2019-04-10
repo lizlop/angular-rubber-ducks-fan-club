@@ -3,6 +3,6 @@ export class FeatureSet {
   colour: string;
   beakColour: string;
   length: number;
-  weigh: number;
+  weight: number;
   swimmingSkill: number;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Duck} from '../duck';
 import {RequestService} from '../request.service';
 import {ActivatedRoute} from '@angular/router';
+import {FeatureSet} from '../featureSet';
 
 @Component({
   selector: 'app-duck-detail',
@@ -12,7 +13,10 @@ export class DuckDetailComponent implements OnInit {
   duck: Duck;
   id: number;
   swimSk;
-  constructor(private service: RequestService, private route: ActivatedRoute) { }
+  constructor(private service: RequestService, private route: ActivatedRoute) {
+    this.duck = new Duck();
+    this.duck.featureSet = new FeatureSet();
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {this.id = +params['id']; });

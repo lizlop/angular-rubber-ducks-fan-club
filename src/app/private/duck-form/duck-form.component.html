@@ -1,24 +1,35 @@
-<form [formGroup]="duckForm" (ngSubmit)="duckFormSubmitted()" class="column lab">
-  <div class="image"></div>
+<form [formGroup]="duckForm" (ngSubmit)="duckFormSubmitted()" class="column" style="align-items: flex-start; ">
+  <div class="image" style="align-self: center"></div>
   <div style="font-size: 1.5em">
-    <input type="text" placeholder="Name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+    <input type="text" id="name" style="align-self: center" placeholder="Name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
   </div>
   <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
     <div *ngIf="f.name.errors.required">Name is required</div>
   </div>
-  <textarea type="text" placeholder="Description" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"> </textarea>
-  <h3 class="label" for="accessibility">Accessibility</h3>
-  <input type="checkbox"  formControlName="accessibility" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.accessibility.errors }"/>
-  <div id = "gender">
-    <input type="radio" formControlName="gender" value="m" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">Male
-    <input type="radio" formControlName="gender" value="f" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">Female
-    <input type="radio" formControlName="gender" value="-" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">None
+  <textarea id="descr" type="text" style="align-self: center" placeholder="Description" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"> </textarea>
+  <div id = "gender" style="align-self: center">
+    <input type="radio" formControlName="gender" value="m" class="r form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">Male
+    <input type="radio" formControlName="gender" value="f" class="r form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">Female
+    <input type="radio" formControlName="gender" value="-" class="r form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">None
   </div>
-  <input type="text" placeholder="Colour" formControlName="colour" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.colour.errors }" />
-  <input type="text" placeholder="Beak colour" formControlName="beakColour" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.beakColour.errors }" />
-  <input type="number" placeholder="Length in cm" formControlName="length" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.length.errors }" />
-  <input type="number" placeholder="Weigh in gram" formControlName="weigh" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.weigh.errors }" />
-  <h3 class="label" for="swimmingSkill">Swimming skill</h3>
-  <input type="range" min="1" max="10" step="1" value="1" formControlName="swimmingSkill" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.swimmingSkill.errors }" />
-  <button [disabled]="loading" class="btn btn-primary text">Add duck</button>
+  <div class="row" style="margin-top: unset">
+  <div class="column lab" style="align-items: flex-start">
+    <label class="label" for="accessibility">Accessibility</label>
+    <label class="label" for="colour">Colour</label>
+    <label class="label" for="beakColour">Beak colour</label>
+    <label class="label" for="length">Length in cm</label>
+    <label class="label" for="weight">Weight in gram</label>
+    <label class="label" for="swimmingSkill">Swimming skill from 1 to 10</label>
+  </div>
+
+  <div class="column val" style="align-items: flex-start; margin-left: 20px">
+    <input id="c" type="checkbox"  formControlName="accessibility" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.accessibility.errors }"/>
+    <input type="text" formControlName="colour" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.colour.errors }" />
+    <input type="text" formControlName="beakColour" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.beakColour.errors }" />
+    <input type="number" formControlName="length" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.length.errors }" />
+    <input type="number" formControlName="weight" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }" />
+    <input type="range" min="1" max="10" step="1" value="1" formControlName="swimmingSkill" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.swimmingSkill.errors }" />
+  </div>
+  </div>
+  <button [disabled]="loading" class="btn btn-primary text" style="align-self: center">{{buttonTitle}}</button>
 </form>

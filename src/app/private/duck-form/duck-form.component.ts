@@ -11,6 +11,7 @@ import {FeatureSet} from '../featureSet';
   styleUrls: ['./duck-form.component.css']
 })
 export class DuckFormComponent implements OnInit {
+  @Input() buttonTitle: string;
   @Output() duckFormSubmit = new EventEmitter();
   duck: DuckUpdate;
   loading = false;
@@ -32,7 +33,7 @@ export class DuckFormComponent implements OnInit {
       colour: [''],
       beakColour: [''],
       length: [0],
-      weigh: [0],
+      weight: [0],
       swimmingSkill: [1]
     });
     this.duck = new DuckUpdate();
@@ -57,7 +58,7 @@ export class DuckFormComponent implements OnInit {
     this.duck.featureSet.colour = this.f.colour.value;
     this.duck.featureSet.beakColour = this.f.beakColour.value;
     this.duck.featureSet.length = this.f.length.value;
-    this.duck.featureSet.weigh = this.f.weigh.value;
+    this.duck.featureSet.weight = this.f.weight.value;
     this.duck.featureSet.swimmingSkill = this.f.swimmingSkill.value;
     this.duckFormSubmit.emit(this.duck);
   }

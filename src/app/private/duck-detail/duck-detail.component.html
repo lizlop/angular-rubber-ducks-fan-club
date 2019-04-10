@@ -4,13 +4,14 @@
 <div class="row">
 <div class="column table">
   <div id="bpan" class="row" style="margin-top: unset">
-    <div id="update"></div>
+    <div id="update" [routerLink]="['/home/duck-update', duck.id]"></div>
     <div id="delete"></div>
   </div>
   <div class="row t" style="margin-top: unset">
     <div class="column">
       <div class="image"></div>
       <div style="font-size: 1.5em">{{duck.name}}</div>
+      <div style="font-size: 1.2em">{{duck.description}}</div>
       <div class="row" style="margin-top: unset">
         <div class="column lab" style="align-items: flex-start">
           <label for="acc">Accessability:</label>
@@ -25,9 +26,9 @@
           <output id="acc">{{duck.accessibility}}</output>
           <output id="gender">{{duck.featureSet.gender}}</output>
           <output id="col">{{duck.featureSet.colour}}</output>
-          <output id="bcol">{{duck.featureSet.colour}}</output>
+          <output id="bcol">{{duck.featureSet.beakColour}}</output>
           <output id="len">{{duck.featureSet.length}} cm</output>
-          <output id="w">{{duck.featureSet.weigh}}g</output>
+          <output id="w">{{duck.featureSet.weight}}g</output>
           <div id="s" class="row" style="margin-top: unset">
           <div *ngFor="let skill of swimSk">
             <div id="icon"></div>

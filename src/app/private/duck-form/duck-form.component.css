@@ -10,11 +10,50 @@
   background: center no-repeat #FFFFFF url("../../../img/duck-image.svg");
   background-size: cover;
   border-style: outset;
+  margin-bottom: 20px;
 }
 .row{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  margin-top: 4em;
+}
+.r, #c{
+  width: 20px;
+  height: 20px;
+}
+#name{
+  width: 500px;
+  font-size: 1.2em;
+  font-family: 'Risque', cursive;
+  font-style: normal;
+  font-weight: normal;
+}
+#descr{
+  font-size: 1.5em;
+  width: 500px;
+  height: 100px;
+  font-family: 'Risque', cursive;
+  font-style: normal;
+  font-weight: normal;
+}
+#gender{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+button{
+  margin-top: 20px;
+  background-color: #B4957C;
+  color: #FFFFFF;
+  font-size: 1.5em;
+  font-weight: normal;
+  padding:0.3em 2em 0.3em 2em ;
+}
+input{
+  height: 1.2em;
+  margin-bottom: 10px;
+}
+label{
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
