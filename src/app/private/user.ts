@@ -1,13 +1,29 @@
-import {Gender} from './gender';
-import {Place} from '../events/place';
-
 export class User {
   id: number;
-  username: string;
-  email: string;
+  nickname: string;
   firstName: string;
   lastName: string;
-  gender: Gender;
-  birthday: Date;
-  address: Place;
+  gender: string;
+  email: string;
+  birthDate: string;
+  phoneNumber: string;
+  country: string;
+  city: string;
+  street: string;
+  building: number;
+  buildingLetter: string;
+  image: string;
+}
+export class UpdateUser {
+  firstName: string;
+  lastName: string;
+  gender: string;
+  email: string;
+  birthDate: string;
+  phoneNumber: string;
+  country: string;
+  city: string;
+  street: string;
+  building: number;
+  buildingLetter: string;
 }

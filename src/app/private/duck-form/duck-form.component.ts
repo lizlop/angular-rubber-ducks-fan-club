@@ -60,6 +60,7 @@ export class DuckFormComponent implements OnInit {
     this.duck.featureSet.length = this.f.length.value;
     this.duck.featureSet.weight = this.f.weight.value;
     this.duck.featureSet.swimmingSkill = this.f.swimmingSkill.value;
+    this.loading = false;
     this.duckFormSubmit.emit(this.duck);
   }
 }

@@ -16,6 +16,8 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './authInterceptor';
 import { DuckAddComponent } from './duck-add/duck-add.component';
 import { DuckUpdateComponent } from './duck-update/duck-update.component';
+import {EventDetailComponent} from './event-detail/event-detail.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { DuckUpdateComponent } from './duck-update/duck-update.component';
     DuckFormComponent,
     MyEventsComponent,
     DuckAddComponent,
-    DuckUpdateComponent
+    DuckUpdateComponent,
+    EventDetailComponent,
+    UserUpdateComponent
   ],
   imports: [
     CommonModule,

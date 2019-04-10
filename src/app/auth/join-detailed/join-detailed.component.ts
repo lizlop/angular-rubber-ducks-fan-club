@@ -19,7 +19,6 @@ export class JoinDetailedComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService
-    // private alertService: AlertService
   ) {
     // redirect to home if already logged in
     if (this.authService.isLogedIn()) {

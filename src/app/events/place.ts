@@ -5,4 +5,5 @@ export class Place {
   city: string;
   street: string;
   building: number;
+  buildingLetter: string;
 }

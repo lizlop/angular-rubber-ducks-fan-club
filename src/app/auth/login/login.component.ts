@@ -4,7 +4,7 @@ import {AuthService} from '../auth.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {User} from '../user';
-import {AuthUser} from '../auth-user';
+import {AuthUser} from '../user';
 
 @Component({
   selector: 'app-login',

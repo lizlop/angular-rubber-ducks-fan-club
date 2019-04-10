@@ -5,5 +5,12 @@ export enum Config {
   ducksUrl = 'ducks/users/all',
   duckUrl = 'ducks/details/',
   duckAddUrl = 'ducks/new',
-  duckUpdateUrl = 'ducks/update/'
+  duckUpdateUrl = 'ducks/update/',
+  duckDeleteUrl = 'ducks/delete/',
+  userEventsUrl = 'events/users/all',
+  eventAddUrl = 'events/new',
+  eventUrl = 'events/details/',
+  userUrl = 'users/me',
+  eventsUrl = 'events/upcoming',
+  userUpdateUrl = 'users/update/'
 }

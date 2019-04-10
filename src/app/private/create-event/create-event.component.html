@@ -3,7 +3,14 @@
 </div>
 <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" style="width: 100%; margin-top: 4em">
   <div class="row">
-  <div class="column">
+  <div class="blank column">
+    <h3 class="label" for="name">Title</h3>
+    <textarea style="height: 80px" formControlName="name" class="form-control txt" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" ></textarea>
+    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+      <div *ngIf="f.name.errors.required">Title is required</div>
+      <div *ngIf="f.name.errors.maxLength">Title is too long</div>
+    </div>
+
   <h3 class="label" for="date">Date</h3>
   <input type="date" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
   <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
@@ -15,6 +22,9 @@
   <div *ngIf="submitted && f.time.errors" class="invalid-feedback">
     <div *ngIf="f.time.errors.required">Time is required</div>
   </div>
+
+    <h3 class="label" for="cost">Cost($): </h3>
+    <input type="number" formControlName="cost" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.time.errors }"/>
 
   <h3 class="label" for="country">Address</h3>
   <select formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
@@ -282,9 +292,11 @@
   <div *ngIf="submitted && f.building.errors" class="invalid-feedback">
     <div *ngIf="f.building.errors.required">Building is required</div>
   </div>
+
+    <input type="text" placeholder="Letter" formControlName="letter" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.letter.errors }" />
   </div>
 
-  <input type="number" placeholder="Place name" formControlName="place" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.place.errors }" />
+  <input type="text" placeholder="Place name" formControlName="place" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.place.errors }" />
 
 
   <div class="row" style="justify-content: flex-start; align-items: center;">
@@ -294,22 +306,6 @@
 
   <h3 class="label" for="maxPeople">Maximal number of participants</h3>
   <input type="number" formControlName="maxPeople" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.maxPeople.errors }" />
-  </div>
-
-  <div class="column">
-  <h3 class="label" for="name">Title</h3>
-  <input type="text" formControlName="name" class="form-control txt" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
-  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-    <div *ngIf="f.name.errors.required">Title is required</div>
-    <div *ngIf="f.name.errors.maxLength">Title is too long</div>
-  </div>
-
-  <h3 class="label" for="descr">Description</h3>
-    <textarea formControlName="descr" class="form-control txt" id="txt" [ngClass]="{ 'is-invalid': submitted && f.descr.errors }"></textarea>
-  <div *ngIf="submitted && f.descr.errors" class="invalid-feedback">
-    <div *ngIf="f.descr.errors.required">Description is required</div>
-    <div *ngIf="f.descr.errors.minLength">Description is too short</div>
-  </div>
   </div>
   </div>
   <div class="row">

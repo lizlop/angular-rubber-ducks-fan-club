@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {EventService} from '../event.service';
-import { Event } from '../event';
-import {Observable, of} from 'rxjs';
+import { SimpleEvent } from '../event';
 
 @Component({
   selector: 'app-event-list',
@@ -10,7 +9,7 @@ import {Observable, of} from 'rxjs';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
-  events: Event[];
+  events: SimpleEvent[];
   selectedId: number;
 
   constructor(

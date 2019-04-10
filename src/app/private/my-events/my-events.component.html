@@ -17,9 +17,16 @@
     </div>
 
     <div class="description" >
-  <li *ngFor="let str of event.description" class="text">{{str}}</li>
-  <a [routerLink]="['/event', event.id]" class="text">more details here...</a>
+      <div class="text">When? {{printDate(event.date)}} {{printTime(event.date)}}
+        <div class="row" style="justify-content: baseline">
+          <div style="display: flex">How much? </div>
+          <div style="display: flex" *ngIf="event.cost != 0">Just {{event.cost}}$!</div>
+          <div style="display: flex" *ngIf="event.cost === 0">For free!</div>
+        </div>
+        <div *ngIf="event.isClubOnly === 'true'" style="color: red"> ONLY FOR CLUB MEMBERS</div>
+        <div *ngIf="event.maxPeople != 0">Places are limited</div>
+        <a [routerLink]="['/home/event', event.id]">Look for the details!</a>
+      </div>
   </div>
 
-  </li>
 </ul>

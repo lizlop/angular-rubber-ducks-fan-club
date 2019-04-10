@@ -26,7 +26,7 @@ export class DuckDetailComponent implements OnInit {
     });
   }
   deleteDuck() {
-    this.service.deleteDuck(this.id);
+    this.service.deleteDuck(this.id).subscribe(response => response, error => error);
     this.router.navigate(['/home/my-ducks']);
   }
 

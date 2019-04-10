@@ -14,12 +14,12 @@
 
     <div class="row">
       <div class="icon"></div>
-      <a [routerLink]="['/event', event.id]" class="header">{{event.name}}</a>
+      <a [routerLink]="['/home/event', event.id]" class="header">{{event.name}}</a>
     </div>
 
     <div class="description" >
       <li *ngFor="let str of event.description" class="text">{{str}}</li>
-  <a [routerLink]="['/event', event.id]" class="text">more details here...</a>
+  <a [routerLink]="['/home/event', event.id]" class="text">more details here...</a>
     </div>
 
   </li>

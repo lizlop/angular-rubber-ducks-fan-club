@@ -10,9 +10,14 @@
         <div class="header">{{event.name}}</div>
       </div>
       <div class="text data">
-        <div>Date: {{event.date}}</div>
+        <div>Date: {{printDate(event.date)}} {{printTime(event.time)}}</div>
+        <div>Cost: {{event.cost}}$</div>
         <div>City: {{event.place.city}}, {{event.place.country}}</div>
-        <div>Address: {{event.place.street}} {{event.place.building}} {{event.place.name}}</div>
+        <div class="row" style="justify-content: flex-start">
+          <div>Address: {{event.place.name}} {{event.place.building}}</div>
+          <div *ngIf="event.place.buildingLetter != '-'">{{event.place.buildingLetter}}</div>
+          <div>, {{event.place.street}}</div>
+        </div>
         <div *ngIf="event.isClubOnly">Maximum participants: {{event.maxPeople}}</div>
       </div>
       <div class="description text" >
@@ -20,7 +25,8 @@
       </div>
     </div>
     <div class="row">
-    <button *ngIf="event.isClubOnly&&(event.maxPeople!=event.participants)">Register to the event</button>
+    <button *ngIf="event.isClubOnly && (event.maxPeople != 0)">Register to the event</button>
     </div>
+    <div (click)="back()" id="back" class="row">Back</div>
   </div>
 </div>

@@ -71,7 +71,7 @@ label, output{
   height: 40px;
 }
 #quiticon{
-  background: center no-repeat url("../../../img/logout.svg");
+  background: center no-repeat url("../../../img/settings.png");
   background-size: 35px 35px;
   margin-right: 2%;
   width: 40px;

@@ -8,7 +8,7 @@
       <div id="duckicon"></div>
       <div>My ducks</div>
     </a>
-    <a routerLink="/home/settings" class="button">
+    <a [routerLink]="['/home/settings', user.id]" class="button">
       <div id="seticon"></div>
       <div>Settings</div>
     </a>
@@ -25,17 +25,23 @@
         <label for="first">First name:</label>
         <label for="last">Last name:</label>
         <label for="gender">Gender:</label>
-        <label for="birth">Birthday:</label>
-        <label for="add">Address:</label>
       </div>
       <div class="column val" style="align-items: flex-start">
-        <output id="username">{{user.username}}</output>
-        <output id="email">{{user.email}}</output>
-        <output id="first">{{user.firstName}}</output>
-        <output id="last">{{user.lastName}}</output>
-        <output id="gender">{{user.gender}}</output>
-        <output id="birth">{{user.birthday}}</output>
-        <output id="add">{{user.address.country}}, {{user.address.city}}</output>
+        <output id="username">{{user.nickname}}</output>
+        <output id="email">
+          <div *ngIf="user.email != 'null'">{{user.email}}</div>
+        </output>
+        <output id="first">
+          <div *ngIf="user.firstName != 'null'">{{user.firstName}}</div>
+        </output>
+        <output id="last">
+          <div *ngIf="user.lastName != 'null'">{{user.lastName}}</div>
+        </output>
+        <output id="gender">
+          <div *ngIf="user.gender === 'm'">Male</div>
+          <div *ngIf="user.gender === 'f'">Female</div>
+          <div *ngIf="user.gender === '-'">None</div>
+        </output>
       </div>
     </div>
   </div>

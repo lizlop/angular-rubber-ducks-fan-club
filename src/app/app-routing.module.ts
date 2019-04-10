@@ -6,15 +6,13 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthModule} from './auth/auth.module';
 import {AuthGuard} from './auth/auth.guard';
 import {PrivateModule} from './private/private.module';
-import {EventDetailComponent} from './events/event-detail/event-detail.component';
+import {EventDetailComponent} from './private/event-detail/event-detail.component';
 
 const routes: Routes = [
   {path: 'about',
   component: AboutComponent},
   {path: 'events',
   component: EventsComponent},
-  {path: 'event/:id',
-  component: EventDetailComponent},
   {path: 'home',
     loadChildren: () => PrivateModule,
     canActivate: [AuthGuard]

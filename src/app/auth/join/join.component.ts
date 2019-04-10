@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../auth.service';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
 import {User} from '../user';
 
 @Component({

@@ -15,7 +15,7 @@ export class MyAccountComponent implements OnInit {
   constructor(private service: RequestService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.service.getUser(1).subscribe(user => this.user = user);
+    this.service.getUser().subscribe(user => this.user = user);
   }
   logout() {
     this.authService.logout();

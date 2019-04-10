@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {first, map} from 'rxjs/operators';
 import {User} from './user';
 import {Config} from '../config';
-import {AuthUser} from './auth-user';
+import {AuthUser} from './user';
 import {Observable} from 'rxjs';
 
 @Injectable({

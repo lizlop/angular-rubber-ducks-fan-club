@@ -6,7 +6,7 @@ import {Duck, DuckSimple} from './duck';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Config} from '../config';
 import {FeatureSet} from './featureSet';
-import {USERS} from './mock-user';
+import {SimpleEvent, Event} from '../events/event';
 
 @Injectable({
   providedIn: 'root'
@@ -28,13 +28,17 @@ export class RequestService {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return currentUser.username;
   }
-  getUsers(): Observable<User[]> {
-    return of(USERS);
+  getUser(): Observable<User> {
+    return this.http.get<User>(Config.baseUrl + Config.userUrl, this.httpOptions)
+      .pipe(map( res => {
+        let d = new User();
+        d = res;
+        return d;
+      }));
   }
-  getUser(id: number): Observable<User> {
-    return this.getUsers().pipe(
-      map(users => users.find(user => user.id === id))
-    );
+  updateUser(body: string, id: number) {
+    return this.http.post(Config.baseUrl + Config.userUpdateUrl + id, body, this.httpJsonOptions)
+      .pipe(first());
   }
   getDucks(): Observable<DuckSimple[]> {
     return this.http.post(Config.baseUrl + Config.ducksUrl, this.getUsername(), this.httpOptions)
@@ -80,5 +84,40 @@ export class RequestService {
         return duck;
       }));
   }
-  deleteDuck(id: number) {}
+  deleteDuck(id: number) {
+    return this.http.get(Config.baseUrl + Config.duckDeleteUrl + id, this.httpOptions)
+      .pipe(first());
+  }
+  getEvents(): Observable<SimpleEvent[]> {
+    return this.http.post(Config.baseUrl + Config.userEventsUrl, this.getUsername(), this.httpOptions)
+      .pipe(map(res => {
+          if (res instanceof Array) {
+            return res.map( event => {
+                let ev = new SimpleEvent();
+                ev.id = event.id;
+                ev.name = event.name;
+                ev.date = event.date;
+                ev.cost = event.cost;
+                console.log(event.isClubOnly);
+                ev.isClubOnly = event.isClubOnly === 'true';
+                ev.maxPeople = event.maxPeople;
+                return ev;
+              }
+            );
+          }
+        }
+      ));
+  }
+  addEvent(body: string) {
+    return this.http.post(Config.baseUrl + Config.eventAddUrl, body, this.httpJsonOptions)
+      .pipe(first());
+  }
+  getEvent(id: number): Observable<Event> {
+    return this.http.get<Event>(Config.baseUrl + Config.eventUrl + id, this.httpOptions)
+      .pipe(map( res => {
+        let e = new Event();
+        e = res;
+        return e;
+      }));
+  }
 }

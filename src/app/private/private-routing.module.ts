@@ -11,6 +11,8 @@ import {DuckFormComponent} from './duck-form/duck-form.component';
 import {MyEventsComponent} from './my-events/my-events.component';
 import {DuckAddComponent} from './duck-add/duck-add.component';
 import {DuckUpdateComponent} from './duck-update/duck-update.component';
+import {EventDetailComponent} from './event-detail/event-detail.component';
+import {UserUpdateComponent} from './user-update/user-update.component';
 
 const privateRoutes: Routes = [{
   path: '',
@@ -50,6 +52,13 @@ const privateRoutes: Routes = [{
     {
       path: 'create-event',
       component: CreateEventComponent
+    },
+    {
+      path: 'event/:id',
+      component: EventDetailComponent},
+    {
+      path: 'settings/:id',
+      component: UserUpdateComponent
     },
     {
       path: '',

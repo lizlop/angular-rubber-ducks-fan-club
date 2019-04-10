@@ -49,3 +49,8 @@ button{
   height: 350px;
   text-align: start;
 }
+.blank{
+  background: #FFFFFF;
+  padding: 40px;
+  border-style: outset;
+}

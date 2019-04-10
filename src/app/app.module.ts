@@ -9,7 +9,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {PrivateModule} from './private/private.module';
 import {NavigationModule} from './navigation/navigation.module';
 import { EventListComponent } from './events/event-list/event-list.component';
-import { EventDetailComponent } from './events/event-detail/event-detail.component';
+import { EventDetailComponent } from './private/event-detail/event-detail.component';
 import {FormsModule} from '@angular/forms';
 import {AuthInterceptor} from './private/authInterceptor';
 
@@ -21,8 +21,7 @@ import {AuthInterceptor} from './private/authInterceptor';
     AboutComponent,
     EventsComponent,
     PageNotFoundComponent,
-    EventListComponent,
-    EventDetailComponent
+    EventListComponent
   ],
   imports: [
     AppRoutingModule,
