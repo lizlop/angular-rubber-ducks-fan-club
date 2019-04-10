@@ -14,7 +14,7 @@ export class EventService {
   constructor(private http: HttpClient) {}
 
   getEvents(): Observable<SimpleEvent[]> {
-    return this.http.get(Config.baseUrl + Config.userEventsUrl)
+    return this.http.get(Config.baseUrl + Config.eventsUrl)
       .pipe(map(res => {
           if (res instanceof Array) {
             return res.map( event => {
