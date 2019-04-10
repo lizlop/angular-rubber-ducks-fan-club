@@ -5,7 +5,7 @@
 <div class="column table">
   <div id="bpan" class="row" style="margin-top: unset">
     <div id="update" [routerLink]="['/home/duck-update', duck.id]"></div>
-    <div id="delete"></div>
+    <div id="delete" (click)="deleteDuck()"></div>
   </div>
   <div class="row t" style="margin-top: unset">
     <div class="column">

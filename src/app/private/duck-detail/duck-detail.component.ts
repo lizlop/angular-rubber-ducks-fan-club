@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Duck} from '../duck';
 import {RequestService} from '../request.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FeatureSet} from '../featureSet';
 
 @Component({
@@ -13,7 +13,7 @@ export class DuckDetailComponent implements OnInit {
   duck: Duck;
   id: number;
   swimSk;
-  constructor(private service: RequestService, private route: ActivatedRoute) {
+  constructor(private service: RequestService, private router: Router, private route: ActivatedRoute) {
     this.duck = new Duck();
     this.duck.featureSet = new FeatureSet();
   }
@@ -24,6 +24,10 @@ export class DuckDetailComponent implements OnInit {
       this.duck = duck;
       this.swimSk = Array(this.duck.featureSet.swimmingSkill).fill(1);
     });
+  }
+  deleteDuck() {
+    this.service.deleteDuck(this.id);
+    this.router.navigate(['/home/my-ducks']);
   }
 
 }

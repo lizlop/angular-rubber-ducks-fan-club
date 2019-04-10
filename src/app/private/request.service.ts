@@ -80,4 +80,5 @@ export class RequestService {
         return duck;
       }));
   }
+  deleteDuck(id: number) {}
 }

@@ -1,3 +1,25 @@
 <div style="height: 40%">
   <app-navigation [inputTitle]="'my events'"></app-navigation>
 </div>
+<div class="btnpanel">
+  <a routerLink="/home/create-event" class="button">
+    <div id="plusicon"></div>
+    <div>Create event</div>
+  </a>
+</div>
+<ul class="events">
+  <li *ngFor="let event of events" class="event"
+      [class.selected]="event.id === selectedId">
+
+    <div class="row">
+      <div class="icon"></div>
+      <a [routerLink]="['/event', event.id]" class="header">{{event.name}}</a>
+    </div>
+
+    <div class="description" >
+  <li *ngFor="let str of event.description" class="text">{{str}}</li>
+  <a [routerLink]="['/event', event.id]" class="text">more details here...</a>
+  </div>
+
+  </li>
+</ul>
