@@ -28,3 +28,12 @@ h3{
   font-family: 'Risque', cursive;
   font-style: normal;
 }
+
+.about{
+  padding-top: 0;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+  font-style: normal;
+  font-size: 25px;
+}
