@@ -3,8 +3,7 @@
 </div>
 <div class="panel">
 <ul class="ducks">
-  <li *ngFor="let duck of ducks" class="duck" routerLink="/home/duck/:id"
-      [class.selected]="duck.id === selectedId">
+  <li *ngFor="let duck of ducks" class="duck" [routerLink]="['/home/duck', duck.id]" [class.selected]="duck.id === selectedId">
     <div class="image"></div>
     <div class="name">{{duck.name}}</div>
   </li>

@@ -2,7 +2,7 @@ export class FeatureSet {
   gender: string;
   colour: string;
   beakColour: string;
-  leangth: number;
+  length: number;
   weigh: number;
   swimmingSkill: number;
 }

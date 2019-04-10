@@ -1,11 +1,9 @@
 .image{
   width: 150px;
   height: 150px;
-  border-radius: 100%;
-  background: center no-repeat #FFFFFF url("../../../img/user-logo-brown.svg");
+  background: center no-repeat #FFFFFF url("../../../img/duck-image.svg");
   background-size: cover;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  border-style: outset;
 }
 .row{
   display: flex;

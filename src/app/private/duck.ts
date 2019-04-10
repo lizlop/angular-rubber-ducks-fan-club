@@ -4,6 +4,13 @@ export class Duck {
   id: number;
   name: string;
   description: string;
-  accessibility: boolean;
+  accessibility: string;
   featureSet: FeatureSet;
+}
+
+export class DuckSimple {
+  id: number;
+  name: string;
+  description: string;
+  accessibility: string;
 }
