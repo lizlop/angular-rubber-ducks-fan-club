@@ -23,6 +23,7 @@ export class AuthService {
   addUser(user: User): boolean {
     this.http.post<any>(this.uri + Config.registerUrl, JSON.stringify(user), this.httpOptions)
       .subscribe(response => {
+        console.log(response);
         return response.status === 200;
       });
     return false;
@@ -35,12 +36,14 @@ export class AuthService {
   login(user: User) {
     return this.http.post<any>(this.uri + Config.loginUrl, JSON.stringify(user), this.httpOptions)
       .pipe(map(data => {
+        console.log(data['token']);
         let token = data['token'];
         // login successful if there's a jwt token in the response
         if (token) {
           let auser = new AuthUser();
           auser.token = token;
           auser.username = user.username;
+          console.log(JSON.stringify(auser));
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(auser));
         }

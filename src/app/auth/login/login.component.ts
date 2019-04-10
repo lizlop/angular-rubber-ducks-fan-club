@@ -72,10 +72,10 @@ export class LoginComponent implements OnInit {
         });
     //
     // fake logging in
-    let auser = new AuthUser();
+    /*let auser = new AuthUser();
     auser.token = '2By8LOhBmaW5nZXJwcmludCIlMDAzMW';
     auser.username = this.user.username;
-    localStorage.setItem('currentUser', JSON.stringify(auser));
+    localStorage.setItem('currentUser', JSON.stringify(auser));*/
     //
     this.router.navigate(['/home']);
   }

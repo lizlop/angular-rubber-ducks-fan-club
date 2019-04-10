@@ -3,10 +3,38 @@
 </div>
 <div class="row">
 <div class="column table">
+  <div id="bpan" class="row" style="margin-top: unset">
+    <div id="update"></div>
+    <div id="delete"></div>
+  </div>
   <div class="row t" style="margin-top: unset">
-    <div class="column lab" style="align-items: flex-start">
+    <div class="column lab">
       <div class="image"></div>
-      <div class="name">{{duck.name}}</div>
+      <div class="name" style="font-size: 1.5em">{{duck.name}}</div>
+      <div class="row" style="margin-top: unset">
+        <div class="column lab" style="align-items: flex-start">
+          <label for="acc">Accessability:</label>
+          <label for="gender">Gender:</label>
+          <label for="col">Colour:</label>
+          <label for="bcol">Beak colour:</label>
+          <label for="len">Beak length:</label>
+          <label for="w">Weight:</label>
+          <label for="s">Swimming skill:</label>
+        </div>
+        <div class="column val" style="align-items: flex-start">
+          <output id="acc">{{duck.accessibility}}</output>
+          <output id="gender">{{duck.featureSet.gender}}</output>
+          <output id="col">{{duck.featureSet.colour}}</output>
+          <output id="bcol">{{duck.featureSet.colour}}</output>
+          <output id="len">{{duck.featureSet.length}} cm</output>
+          <output id="w">{{duck.featureSet.weigh}}g</output>
+          <div id="s" class="row" style="margin-top: unset">
+          <div *ngFor="let skill of swimSk">
+            <div id="icon"></div>
+          </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

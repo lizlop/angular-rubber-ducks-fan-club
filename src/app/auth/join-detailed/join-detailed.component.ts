@@ -22,7 +22,7 @@ export class JoinDetailedComponent implements OnInit {
     // private alertService: AlertService
   ) {
     // redirect to home if already logged in
-    if (this.authService.currentUserValue) {
+    if (this.authService.isLogedIn()) {
       this.router.navigate(['/home']);
     }
   }

@@ -49,7 +49,7 @@ export class RequestService {
       ));*/
   }
   getDuck(id: number): Observable<Duck> {
-    return this.getDucks().pipe(
+    return of(DUCKS).pipe(
       map(ducks => ducks.find(duck => duck.id === id))
     );
     /*return this.http.get(Config.baseUrl + Config.duckUrl + id, this.getUsername(), this.httpOptions)
