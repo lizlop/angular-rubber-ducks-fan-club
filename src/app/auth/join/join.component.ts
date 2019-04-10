@@ -22,7 +22,6 @@ export class JoinComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService
-    // private alertService: AlertService
   ) {
     // redirect to home if already logged in
     if (this.authService.isLogedIn()) {
@@ -51,13 +50,24 @@ export class JoinComponent implements OnInit {
     this.loading = true;
     this.user.username = this.f.username.value;
     this.user.password = this.f.password.value;
-    if (this.authService.addUser(this.user)) {
+    let success;
+    this.authService.addUser(this.user).subscribe(response => {
+        success = response.status === 200;
+        if (success) {this.forward(success); }
+      },
+      error => {
+        success = error.status === 200;
+        this.forward(success);
+      });
+  }
+  forward(success: boolean) {
+    if (success) {
+      this.error = '';
       this.router.navigate(['/join-detailed']);
     } else {
       this.loading = false;
-      this.error = 'Registration failed';
+      this.error = 'Try another username';
     }
-    // report about error
   }
 
 }

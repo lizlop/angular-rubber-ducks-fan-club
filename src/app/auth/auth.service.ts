@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
+import {first, map} from 'rxjs/operators';
 import {User} from './user';
 import {Config} from '../config';
 import {AuthUser} from './auth-user';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +20,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) {
   }
-  addUser(user: User): boolean {
-    this.http.post<any>(this.uri + Config.registerUrl, JSON.stringify(user), this.httpOptions)
-      .subscribe(response => {
-        console.log(response);
-        return response.status === 200;
-      });
-    return false;
+  addUser(user: User): Observable<any> {
+    return this.http.post<any>(this.uri + Config.registerUrl, JSON.stringify(user), this.httpOptions)
+      .pipe(first());
   }
   isLogedIn(): boolean {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -36,7 +32,6 @@ export class AuthService {
   login(user: User) {
     return this.http.post<any>(this.uri + Config.loginUrl, JSON.stringify(user), this.httpOptions)
       .pipe(map(data => {
-        console.log(data['token']);
         let token = data['token'];
         // login successful if there's a jwt token in the response
         if (token) {
