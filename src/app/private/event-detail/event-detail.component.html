@@ -13,7 +13,7 @@
         <div>Date: {{event.date}}</div>
         <div>City: {{event.place.city}}, {{event.place.country}}</div>
         <div>Address: {{event.place.street}} {{event.place.building}} {{event.place.name}}</div>
-        <div *ngIf="event.isClubOnly">Participants: {{event.participants}} of {{event.maxPeople}}</div>
+        <div *ngIf="event.isClubOnly">Maximum participants: {{event.maxPeople}}</div>
       </div>
       <div class="description text" >
         <li *ngFor="let str of event.description" class="text">{{str}}</li>
