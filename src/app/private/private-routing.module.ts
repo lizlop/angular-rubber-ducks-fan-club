@@ -9,6 +9,7 @@ import {DuckListComponent} from './duck-list/duck-list.component';
 import {DuckDetailComponent} from './duck-detail/duck-detail.component';
 import {DuckFormComponent} from './duck-form/duck-form.component';
 import {MyEventsComponent} from './my-events/my-events.component';
+import {DuckAddComponent} from './duck-add/duck-add.component';
 
 const privateRoutes: Routes = [{
   path: '',
@@ -30,8 +31,8 @@ const privateRoutes: Routes = [{
       component: DuckDetailComponent
     },
     {
-      path: 'add-duck',
-      component: DuckFormComponent
+      path: 'duck-add',
+      component: DuckAddComponent
     },
     {
       path: 'my-account',

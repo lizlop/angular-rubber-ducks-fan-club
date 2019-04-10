@@ -3,5 +3,6 @@ export enum Config {
   loginUrl = 'auth/login',
   registerUrl = 'register/new',
   ducksUrl = 'ducks/users/all',
-  duckUrl = 'ducks/details/'
+  duckUrl = 'ducks/details/',
+  duckAddUrl = 'ducks/new'
 }

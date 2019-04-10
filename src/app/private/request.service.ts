@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {USERS} from './mock-user';
 import {User} from './user';
-import {map} from 'rxjs/operators';
+import {first, map} from 'rxjs/operators';
 import {Duck, DuckSimple} from './duck';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {DUCKS} from './duck-mock';
-import {Config} from '../config';
+import {Config, Config} from '../config';
 import {FeatureSet} from './featureSet';
 
 @Injectable({
@@ -16,6 +16,11 @@ export class RequestService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'text/plain'
+    })
+  };
+  httpJsonOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
     })
   };
 
@@ -33,10 +38,9 @@ export class RequestService {
     );
   }
   getDucks(): Observable<DuckSimple[]> {
-    return of(DUCKS);
-    /*return this.http.post(Config.baseUrl + Config.ducksUrl, this.getUsername(), this.httpOptions)
+    return this.http.post(Config.baseUrl + Config.ducksUrl, this.getUsername(), this.httpOptions)
       .pipe(map(res => {
-        return res.json().map( duck => {
+        return res.map( duck => {
               let d = new DuckSimple();
               d.id = duck.id;
               d.name = duck.name;
@@ -46,7 +50,11 @@ export class RequestService {
             }
           );
         }
-      ));*/
+      ));
+  }
+  addDuck(body: string) {
+    return this.http.post(Config.baseUrl + Config.duckAddUrl, body, this.httpJsonOptions)
+      .pipe(first());
   }
   getDuck(id: number): Observable<Duck> {
     return of(DUCKS).pipe(

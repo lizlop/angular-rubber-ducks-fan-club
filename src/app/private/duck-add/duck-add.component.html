@@ -1,0 +1,8 @@
+<div style="height: 40%">
+  <app-navigation [inputTitle]="'add duck'"></app-navigation>
+</div>
+<div class="row">
+  <div class="column table">
+      <app-duck-form (duckFormSubmit)="addDuck($event)"></app-duck-form>
+  </div>
+</div>

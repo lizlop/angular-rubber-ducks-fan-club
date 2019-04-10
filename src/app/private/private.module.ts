@@ -14,6 +14,7 @@ import { DuckFormComponent } from './duck-form/duck-form.component';
 import { MyEventsComponent } from './my-events/my-events.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './authInterceptor';
+import { DuckAddComponent } from './duck-add/duck-add.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {AuthInterceptor} from './authInterceptor';
     DuckListComponent,
     DuckDetailComponent,
     DuckFormComponent,
-    MyEventsComponent
+    MyEventsComponent,
+    DuckAddComponent
   ],
   imports: [
     CommonModule,

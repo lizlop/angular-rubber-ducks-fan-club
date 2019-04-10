@@ -14,3 +14,10 @@ export class DuckSimple {
   description: string;
   accessibility: string;
 }
+
+export class DuckUpdate {
+  name: string;
+  description: string;
+  accessibility: string;
+  featureSet: FeatureSet;
+}
