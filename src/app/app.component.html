@@ -4,13 +4,22 @@
   <h1>
     {{ title }}
   </h1>
+  <div class="container" [@routeAnimation]="getAnimationData(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+  </div>
 </div>
-<nav>
+<!-- <nav>
   <a routerLink="/about" routerLinkActive="active" style="left: 45px;">About us</a>
   <a routerLink="/events" routerLinkActive="active" style="left: 173px;">Events</a>
   <a routerLink="/join" routerLinkActive="active" style="left: 971px;">Join us or</a>
   <a routerLink="/login" routerLinkActive="active" style="left: 1095px;">Login in</a>
+</nav> -->
+
+<nav class=start_header>
+  <a routerLink="/about" routerLinkActive="active" class=about>About us</a>
+  <a routerLink="/events" routerLinkActive="active" class=events>Events</a>
+  <a routerLink="/join" routerLinkActive="active" class=joinus>Join us</a>
+  <a routerLink="/login" routerLinkActive="active" class=login>Log in</a>
 </nav>
-<div class="container" [@routeAnimation]="getAnimationData(routerOutlet)">
-  <router-outlet #routerOutlet="outlet"></router-outlet>
-</div>
+
+
