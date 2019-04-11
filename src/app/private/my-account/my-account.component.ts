@@ -12,14 +12,25 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class MyAccountComponent implements OnInit {
   title = 'My account';
   user: User;
-  constructor(private service: RequestService, private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
+  date: string;
+  constructor(private service: RequestService, private authService: AuthService, private router: Router, private route: ActivatedRoute) {
+    this.user = new User;
+  }
 
   ngOnInit() {
-    this.service.getUser().subscribe(user => this.user = user);
+    this.service.getUser().subscribe(user => {
+      this.user = user;
+      let dt = this.user.birthDate.split(' ', 2);
+      let dat = dt[0].split('-', 3);
+      this.date = dat[2] + '.' + dat[1] + '.' + dat[0];
+    });
   }
   logout() {
     this.authService.logout();
     this.router.navigate(['/']);
+  }
+  printDate(date: string) {
+    return this.date;
   }
 
 }

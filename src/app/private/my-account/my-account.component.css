@@ -15,7 +15,6 @@ a{
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  margin-top: 4em;
 }
 .column{
   display: flex;

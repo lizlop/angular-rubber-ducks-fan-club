@@ -1,7 +1,7 @@
 <div style="height: 40%">
   <app-navigation [inputTitle]="'my account'"></app-navigation>
 </div>
-<div class="row">
+<div class="row" style="margin-top: 4em;">
   <div class="column">
     <div class="image"></div>
     <a routerLink="/home/my-ducks" class="button">
@@ -25,6 +25,9 @@
         <label for="first">First name:</label>
         <label for="last">Last name:</label>
         <label for="gender">Gender:</label>
+        <label for="birthday">Birthday: </label>
+        <label for="city">City:</label>
+        <label for="address">Address:</label>
       </div>
       <div class="column val" style="align-items: flex-start">
         <output id="username">{{user.nickname}}</output>
@@ -41,6 +44,21 @@
           <div *ngIf="user.gender === 'm'">Male</div>
           <div *ngIf="user.gender === 'f'">Female</div>
           <div *ngIf="user.gender === '-'">None</div>
+        </output>
+        <output id="birthday">
+          <div *ngIf="user.birthDate != 'null'">{{printDate(user.birthDate)}}</div>
+        </output>
+        <output id="city" class="row">
+          <div *ngIf="user.city != 'null'">{{user.city}}</div><div *ngIf="uuntry != 'null'">, {{user.country}}</div>
+        </output>
+        <output id="address" class="row">
+          <div *ngIf="user.street != null">
+            <div *ngIf="user.building != 'null'" class="row">
+              <div>{{user.building}}</div>
+              <div *ngIf="user.buildingLetter != 'null'">{{user.buildingLetter}}</div>
+              <div>, {{user.street}}</div>
+            </div>
+          </div>
         </output>
       </div>
     </div>

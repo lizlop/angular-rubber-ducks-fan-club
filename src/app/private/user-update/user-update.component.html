@@ -7,7 +7,6 @@
       <div class="image"></div>
       <div class="column lab" style="align-items: flex-start">
         <label for="email">E-mail:</label>
-        <label for="phone">Phone number (xxx-xxx-xxxx):</label>
         <label for="first">First name:</label>
         <label for="last">Last name:</label>
         <label for="gender">Gender:</label>
@@ -20,10 +19,6 @@
         <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.pattern">E-mail is not correct</div>
-        </div>
-        <input type="tel" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
-        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
-          <div *ngIf="f.phone.errors.pattern">Phone is not correct</div>
         </div>
         <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
         <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />

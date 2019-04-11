@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .table{
   background-color: #FFFFFF;
@@ -42,7 +43,6 @@ output{
   font-size: 1.5em;
   height: 1.6em;
   white-space: nowrap;
-  margin-right: 1.5em;
 }
 .lab{
   width: 45%;

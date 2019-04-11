@@ -31,7 +31,6 @@ export class UserUpdateComponent implements OnInit {
       firstName: [''],
       lastName: [''],
       birthday: [''],
-      phone: ['', Validators.pattern(this.telpattern)],
       country: [''],
       city: [''],
       street: [''],
@@ -49,19 +48,20 @@ export class UserUpdateComponent implements OnInit {
       this.loading = false;
       return;
     }
-    this.user.email = this.f.email.value;
+    this.user = new UpdateUser();
+    this.user.email = this.f.email.value.toString();
     this.user.firstName = this.f.firstName.value;
     this.user.lastName = this.f.lastName.value;
     this.user.gender = this.f.gender.value;
     let date = this.f.birthday.value.toString().split('-', 3);
     this.user.birthDate = date[2] + '-' + date[1] + '-' + date[0] + '-00-00';
-    this.user.phoneNumber = this.f.phone.value.toString();
     this.user.country = this.f.country.value;
     this.user.city = this.f.city.value;
     this.user.street = this.f.street.value;
     this.user.building = this.f.building.value;
     this.user.buildingLetter = this.f.letter.value === '' ? '-' : this.f.letter.value;
     this.loading = false;
+    console.log(JSON.stringify(this.user));
     this.service.updateUser(JSON.stringify(this.user), this.id)
       .subscribe(response => console.log(response), error => console.log(error));
     this.router.navigate(['/home/my-account']);
