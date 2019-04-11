@@ -1,0 +1,24 @@
+<div style="height: 40%">
+  <app-navigation [inputTitle]="'Request'"></app-navigation>
+</div>
+<div class="row">
+  <div class="column table">
+    <div class="row t" style="margin-top: unset">
+      <div class="column">
+        <div class="row" style="margin-top: unset">
+          <div class="column lab" style="align-items: flex-start">
+            <output style="font-size: 2em; white-space: pre-wrap; height: fit-content">You've got a request for this duck:</output>
+            <div [routerLink]="['/home/duck', request.duck.id]" class="image"></div>
+            <output>Duck name: {{request.duck.name}}</output>
+          </div>
+          <div class="column val" style="align-items: flex-end" >
+            <output style="font-size: 2em">From this user:</output>
+            <div class="pimage"></div>
+            <output>Username: {{request.user.nickname}}</output>
+            <output>E-mail: {{request.user.email}}</output>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

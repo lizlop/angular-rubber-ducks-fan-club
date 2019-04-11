@@ -15,5 +15,6 @@ export enum Config {
   eventsUrl = 'events/upcoming',
   userUpdateUrl = 'users/update/',
   userRequestsUrl = 'requests/users/all',
-  requestAddUrl = 'requests/new/'
+  requestAddUrl = 'requests/new/',
+  requestUrl = 'requests/details/'
 }

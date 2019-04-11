@@ -14,6 +14,7 @@ import {DuckUpdateComponent} from './duck-update/duck-update.component';
 import {EventDetailComponent} from './event-detail/event-detail.component';
 import {UserUpdateComponent} from './user-update/user-update.component';
 import {MyRequestsComponent} from './my-requests/my-requests.component';
+import {RequestDetailComponent} from './request-detail/request-detail.component';
 
 const privateRoutes: Routes = [{
   path: '',
@@ -57,6 +58,10 @@ const privateRoutes: Routes = [{
     {
       path: 'my-requests',
       component: MyRequestsComponent
+    },
+    {
+      path: 'request/:id',
+      component: RequestDetailComponent
     },
     {
       path: 'event/:id',

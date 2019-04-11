@@ -7,7 +7,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Config} from '../config';
 import {FeatureSet} from './featureSet';
 import {SimpleEvent, Event} from '../events/event';
-import {SimpleRequest} from './request';
+import {SimpleRequest, Request} from './request';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +36,14 @@ export class RequestService {
             }
           );
         }
+      }));
+  }
+  getRequest(id: number): Observable<Request> {
+    return this.http.get<Request>(Config.baseUrl + Config.requestUrl + id)
+      .pipe(map( res => {
+        let r = new Request();
+        r = res;
+        return r;
       }));
   }
   getRequests(): Observable<SimpleRequest[]> {
