@@ -1,10 +1,9 @@
 <div style="height: 40%">
   <app-navigation [inputTitle]="'Settings'"></app-navigation>
 </div>
-<div class="row" style="justify-content: center">
+<div class="row" style="justify-content: center; margin-top: 4em;">
   <div class="column table">
     <div class="row t" style="margin-top: unset">
-      <div class="image"></div>
       <div class="column lab" style="align-items: flex-start">
         <label for="email">E-mail:</label>
         <label for="first">First name:</label>
@@ -15,7 +14,7 @@
         <label for="city">City:</label>
         <label for="address">Address:</label>
       </div>
-      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="column val" style="align-items: flex-start">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="column val" style="align-items: stretch">
         <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.pattern">E-mail is not correct</div>
@@ -23,12 +22,12 @@
         <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
         <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
         <div id = "gender">
-          <input type="radio" formControlName="gender" value="m" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">Male
-          <input type="radio" formControlName="gender" value="f" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">Female
-          <input type="radio" formControlName="gender" value="-" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">None
+          <input type="radio" formControlName="gender" value="m" class="r form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">Male
+          <input type="radio" formControlName="gender" value="f" class="r form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">Female
+          <input type="radio" formControlName="gender" value="-" class="r form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">None
         </div>
         <input type="date" formControlName="birthday" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }" />
-        <select formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
+        <select style="height: 25px" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
           <option value="Afghanistan">Afghanistan</option>
           <option value="Åland Islands">Åland Islands</option>
           <option value="Albania">Albania</option>
@@ -286,7 +285,7 @@
           </div>
           <input type="text" placeholder="Letter" formControlName="letter" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.letter.errors }" />
         </div>
-        <button [disabled]="loading" class="btn btn-primary text">Log in</button>
+        <button [disabled]="loading" class="btn btn-primary text" style="align-self: flex-start">Log in</button>
       </form>
     </div>
   </div>

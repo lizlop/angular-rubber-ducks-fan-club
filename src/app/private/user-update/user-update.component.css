@@ -1,30 +1,4 @@
-a{
-  text-decoration: none;
-}
-.image{
-  width: 150px;
-  height: 150px;
-  border-radius: 100%;
-  background: center no-repeat #FFFFFF url("../../../img/user-logo-brown.svg");
-  background-size: cover;
-  margin-top: 2em;
-  margin-bottom: 1em;
-}
-.row{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
-  margin-top: 4em;
-}
-.column{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
 .table{
-  margin-top: 2em;
   background-color: #FFFFFF;
   padding: 30px;
   width: 48%;
@@ -32,48 +6,66 @@ a{
 }
 .t{
   border: solid 1px #EDA31D;
-  padding: 5%;
   width: 90%;
+  padding: 5%;
 }
-label, output{
-  font-size: 1.5em;
-  height: 1.6em;
-  white-space: nowrap;
-  margin-right: 1.5em;
+.column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
-.button{
-  width: 100%;
+.image{
+  width: 150px;
+  height: 150px;
+  background: center no-repeat #FFFFFF url("../../../img/duck-image.svg");
+  background-size: cover;
+  border-style: outset;
+  margin-bottom: 20px;
+}
+.row{
   display: flex;
   flex-direction: row;
-  justify-content: stretch;
-  white-space: nowrap;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.r, #c{
+  width: 20px;
+  height: 20px;
+}
+#name{
+  width: 500px;
+  font-size: 1.2em;
+  font-family: 'Risque', cursive;
+  font-style: normal;
+  font-weight: normal;
+}
+#descr{
+  font-size: 1.5em;
+  width: 500px;
+  height: 100px;
+  font-family: 'Risque', cursive;
+  font-style: normal;
+  font-weight: normal;
+}
+button{
+  margin-top: 20px;
   background-color: #B4957C;
   color: #FFFFFF;
-  font-size: 1.6em;
-  padding: 3% 8% 3% 8%;
-  margin-bottom: 0.5%;
-  border-style: outset;
-  border-radius: 15%;
+  font-size: 1.5em;
+  font-weight: normal;
+  padding:0.3em 2em 0.3em 2em ;
 }
-#duckicon{
-  background: center no-repeat url("../../../img/duck-logo2.png");
-  background-size: 35px 35px;
-  margin-right: 2%;
-  width: 40px;
-  height: 40px;
+input, select{
+  height: 20px;
+  margin-bottom: 10px;
 }
-#seticon{
-  background: center no-repeat url("../../../img/settings.png");
-  background-size: 35px 35px;
-  margin-right: 2%;
-  width: 40px;
-  height: 40px;
+label{
+  font-size: 22px;
+  margin-bottom: 10px;
 }
-#quiticon{
-  background: center no-repeat url("../../../img/settings.png");
-  background-size: 35px 35px;
-  margin-right: 2%;
-  width: 40px;
-  height: 40px;
+.r{
+  widows: 20px;
+  height: 20px;
 }
+
