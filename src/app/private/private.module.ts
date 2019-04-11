@@ -18,6 +18,7 @@ import { DuckAddComponent } from './duck-add/duck-add.component';
 import { DuckUpdateComponent } from './duck-update/duck-update.component';
 import {EventDetailComponent} from './event-detail/event-detail.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { MyRequestsComponent } from './my-requests/my-requests.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UserUpdateComponent } from './user-update/user-update.component';
     DuckAddComponent,
     DuckUpdateComponent,
     EventDetailComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    MyRequestsComponent
   ],
   imports: [
     CommonModule,

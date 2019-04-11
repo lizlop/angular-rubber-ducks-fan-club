@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../user';
 import {RequestService} from '../request.service';
 import {AuthService} from '../../auth/auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-my-account',
@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class MyAccountComponent implements OnInit {
   title = 'My account';
   user: User;
-  constructor(private service: RequestService, private authService: AuthService, private router: Router) { }
+  constructor(private service: RequestService, private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.service.getUser().subscribe(user => this.user = user);

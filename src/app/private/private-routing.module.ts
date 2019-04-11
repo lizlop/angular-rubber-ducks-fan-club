@@ -13,6 +13,7 @@ import {DuckAddComponent} from './duck-add/duck-add.component';
 import {DuckUpdateComponent} from './duck-update/duck-update.component';
 import {EventDetailComponent} from './event-detail/event-detail.component';
 import {UserUpdateComponent} from './user-update/user-update.component';
+import {MyRequestsComponent} from './my-requests/my-requests.component';
 
 const privateRoutes: Routes = [{
   path: '',
@@ -52,6 +53,10 @@ const privateRoutes: Routes = [{
     {
       path: 'create-event',
       component: CreateEventComponent
+    },
+    {
+      path: 'my-requests',
+      component: MyRequestsComponent
     },
     {
       path: 'event/:id',

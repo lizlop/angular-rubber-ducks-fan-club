@@ -1,0 +1,79 @@
+.flag{
+  align-self: flex-start;
+  width: fit-content;
+  background: no-repeat url("../../../img/flag-brow.svg");
+  background-size: cover;
+  background-clip: padding-box;
+  margin-left: unset;
+  padding-left: 4%;
+  padding-right: 12%;
+  z-index: 3;
+}
+button{
+  margin-top: 20px;
+  background-color: #B4957C;
+  color: #FFFFFF;
+  font-size: 1.5em;
+  font-weight: normal;
+  padding:0.3em 2em 0.3em 2em ;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.requests{
+  width: 30%;
+  height: fit-content;
+}
+.panel{
+  width: 60%;
+}
+.ducks{
+  flex-wrap: wrap;
+  padding: 2%;
+  margin: unset;
+}
+.image{
+  width: 150px;
+  height: 150px;
+  background: center no-repeat #FFFFFF url("../../../img/duck-image.svg");
+  background-size: cover;
+  border-style: outset;
+}
+.description{
+  font-size: 1.2em;
+  width: 240px;
+  white-space: pre-wrap;
+  margin: 5px;
+  padding: 2px;
+  border-top: 1px black solid;
+}
+.name{
+  font-size: 1.5em;
+}
+.duck{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 30px;
+  border-radius: 15%;
+  margin: 2%;
+}
+.title{
+  width: fit-content;
+  padding: 0.2em 4% 0.2em 4%;
+  margin: unset;
+  color: #FFFFFF;
+  white-space: nowrap;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: normal;
+}

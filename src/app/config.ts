@@ -7,10 +7,13 @@ export enum Config {
   duckAddUrl = 'ducks/new',
   duckUpdateUrl = 'ducks/update/',
   duckDeleteUrl = 'ducks/delete/',
+  ducksAccessibleUrl = 'ducks/accessible',
   userEventsUrl = 'events/users/all',
   eventAddUrl = 'events/new',
   eventUrl = 'events/details/',
   userUrl = 'users/me',
   eventsUrl = 'events/upcoming',
-  userUpdateUrl = 'users/update/'
+  userUpdateUrl = 'users/update/',
+  userRequestsUrl = 'requests/users/all',
+  requestAddUrl = 'requests/new/'
 }

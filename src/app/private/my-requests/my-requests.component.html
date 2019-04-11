@@ -1,0 +1,6 @@
+<ul class="requests" style="list-style: none; padding: unset">
+  <li *ngFor="let request of requests" class="request" [class.selected]="request.id === selectedId">
+    <div [routerLink]="['/request', request.id]" *ngIf="request.isApproved === 'false'" id="new">NEW REQUEST</div>
+    <div [routerLink]="['/request', request.id]" *ngIf="request.isApproved === 'true'" id="notnew">Request</div>
+  </li>
+</ul>

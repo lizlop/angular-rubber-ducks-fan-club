@@ -1,0 +1,27 @@
+.request{
+  height: 3em;
+  font-size: 1.5em;
+  background: #FFFFFF;
+  border-style: outset;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  border-radius: 15%;
+}
+.requests{
+  list-style: unset;
+}
+#new{
+  color: #FFFFFF;
+  padding: 5px;
+  border-radius: 15%;
+  background: #EDA31D;
+}
+#notnew{
+  color: #FFFFFF;
+  padding: 5px;
+  border-radius: 15%;
+  background: #B4957C;
+}

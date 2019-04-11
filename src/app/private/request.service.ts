@@ -7,6 +7,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Config} from '../config';
 import {FeatureSet} from './featureSet';
 import {SimpleEvent, Event} from '../events/event';
+import {SimpleRequest} from './request';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,37 @@ export class RequestService {
   };
 
   constructor(private http: HttpClient) { }
+  getAccessibleDucks(): Observable<DuckSimple[]> {
+    return this.http.get(Config.baseUrl + Config.ducksAccessibleUrl, this.httpOptions)
+      .pipe(map(res => {
+        if (res instanceof Array) {
+          return res.map( duck => {
+              let d = new DuckSimple();
+              d = duck;
+              return d;
+            }
+          );
+        }
+      }));
+  }
+  getRequests(): Observable<SimpleRequest[]> {
+    return this.http.post(Config.baseUrl + Config.userRequestsUrl, this.getUsername(), this.httpOptions)
+      .pipe(map(res => {
+        if (res instanceof Array) {
+          return res.map( req => {
+              let d = new SimpleRequest();
+              d.id = req.id;
+              d.isApproved = req.isApproved;
+              return d;
+            }
+          );
+        }
+      }));
+  }
+  addRequest(body: string, id: number) {
+    return this.http.post(Config.baseUrl + Config.requestAddUrl + id, body, this.httpJsonOptions)
+      .pipe(first());
+  }
   getUsername(): string {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return currentUser.username;
