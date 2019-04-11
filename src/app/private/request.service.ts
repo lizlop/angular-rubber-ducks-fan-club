@@ -25,6 +25,10 @@ export class RequestService {
   };
 
   constructor(private http: HttpClient) { }
+  registerToEvent(id: number): Observable<any> {
+    return this.http.get(Config.baseUrl + Config.eventRegisterUrl + id, this.httpOptions)
+      .pipe(first());
+  }
   getAccessibleDucks(): Observable<DuckSimple[]> {
     return this.http.get(Config.baseUrl + Config.ducksAccessibleUrl, this.httpOptions)
       .pipe(map(res => {

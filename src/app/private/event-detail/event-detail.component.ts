@@ -13,8 +13,9 @@ export class EventDetailComponent implements OnInit {
   time: string;
   date: string;
   id: number;
+  isRegistered: boolean;
   returnUrl: string;
-  constructor( private service: RequestService, private router: Router, private route: ActivatedRoute) {}
+  constructor( private service: RequestService, private router: Router, private route: ActivatedRoute) {this.isRegistered = false; }
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home/my-events';
     this.route.params.subscribe(params => {this.id = +params['id']; });
@@ -36,4 +37,12 @@ export class EventDetailComponent implements OnInit {
   back() {
     this.router.navigate([this.returnUrl]);
   }
+  register() {
+    this.service.registerToEvent(this.id).subscribe( response => {
+        this.isRegistered = response.status === 200;
+      },
+      error => {
+        this.isRegistered = error.status === 200;
+      });
+    }
 }

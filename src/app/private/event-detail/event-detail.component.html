@@ -25,8 +25,9 @@
       </div>
     </div>
     <div class="row">
-    <button *ngIf="event.isClubOnly && (event.maxPeople != 0)">Register to the event</button>
+    <button *ngIf="event.isClubOnly && (event.maxPeople != 0)" (click)="register()">Register to the event</button>
     </div>
+    <div *ngIf="isRegistered" class="row">You've registered to this event</div>
     <div (click)="back()" id="back" class="row">Back</div>
   </div>
 </div>
